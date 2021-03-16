@@ -217,9 +217,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .my {
-  background: rgb(5 13 24 / 60%);
   height: 100%;
-  width: 100%;  
+  width: 100%;
 }
 
 #hero .hero-container {
@@ -1070,7 +1069,7 @@ section {
   #footer {
     position: static;
     width: auto;
-    padding-right: 20px 15px;
+    padding: 20px 15px;
   }
 }
 /* ............................................. */
@@ -1105,7 +1104,7 @@ section {
 .maindiv .order
 {
   border: 2px solid red;
- 
+
 }
 .maindiv
 {
@@ -1142,12 +1141,12 @@ section {
   border-radius: 30px 30px 30px 30px;
   cursor: pointer;
   transition: all 1s;
-  
+
 }
 .statusCard i {
   font-size: 30px;
   margin: 12px 10px 10px 19px;
-  
+
 }
 .span
 {
@@ -1157,5 +1156,5 @@ section {
 .statusCard:hover
 {
   background-color: tomato;
-  
+
 }
