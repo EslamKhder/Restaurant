@@ -1,0 +1,31 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+
+.card button:hover {
+  opacity: 0.7;
+}
+.dis
+{
+  font-size: 19px !important;
+  color: saddlebrown !important;
+}
+.btn:not(:disabled):not(.disabled) {
+  margin: 20px 10px 5px;
+}
+.myorder
+{
+  margin-top: 20px;
+  background-color: beige;
+  padding: 29px;
+}
