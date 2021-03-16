@@ -1,38 +1,266 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<!-- ======= Mobile nav toggle button ======= -->
+<button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+<!-- ======= Header ======= -->
+<header id="header">
+  <div class="d-flex flex-column">
+
+    <div class="profile">
+      <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <h1 class="text-light"><a href="index.html">Restaurant</a></h1>
+      <div class="social-links mt-3 text-center">
+        <a href="https://www.facebook.com/eslam.khder.98"  target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/eslam_khder" target="_blank" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.linkedin.cn/in/eslam-khder-4145351b0" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="#about"><i class="fas fa-utensils"></i> <span>Foods</span></a></li>
+        <li><a href="#resume"><i class="fas fa-cocktail"></i> <span>Cold Drinks</span></a></li>
+        <li><a href="#portfolio"><i class="fas fa-coffee"></i> Hot Drinks</a></li>
+        <li><a href="#services"><i class="fas fa-cookie-bite"></i> Sweets</a></li>
+        <li><a href="#contact"><i class="fas fa-meat"></i>Other Food</a></li>
+
+      </ul>
+    </nav><!-- .nav-menu -->
+    <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
+  </div>
+</header><!-- End Header -->
+
+<!-- Start Navbar -->
+<nav class="mynav navbar navbar-expand-lg navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Restaurant</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex myform">
+        <input class="mygro form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="mygro btn btn-outline-success" type="submit">Search</button>
       </form>
+    </div>
+
+    <div class="statusCard">
+      <span class="span">$50000<i class="fas fa-coins"></i> | 200</span>
+      <i class="fas fa-cart-arrow-down"></i>
     </div>
   </div>
 </nav>
+<!-- Start Order -->
+<nav class="maindiv">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 myorder">
+        <div class="card">
+          <img src="assets/img/logo-cook.jpg" alt="Denim Jeans" style="width:100%">
+          <h1>Tailored Jeans</h1>
+          <p class="price">$19.99</p>
+          <p class="dis">Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="container">
+    <div class="credits">
+      Designed by <a href="https://www.facebook.com/eslam.khder.98" target="_blank">Eslam Khder</a>
+    </div>
+  </div>
+</footer><!-- End  Footer -->
 
-<i class="fas fa-cart-arrow-down"></i>
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
