@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "order")
+@Table(name = "orderfood")
 public class Order extends CategoryOrder{
 
     @Column(name = "price")
