@@ -1162,9 +1162,24 @@ section {
 {
   height: 710px;
 }
+/*
 .mybu
 {
   position: absolute;
   bottom: 0;
   width: 270px;
+}*/
+img
+{
+  height: 220px;
+}
+.order-item {
+  height: 382px;
+}
+#hero h1 {
+  font-size: 23px;
+  font-family: revert;
+}
+.btn:not(:disabled):not(.disabled) {
+  margin: 0px 0px 0px 0px !important;
 }
