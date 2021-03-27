@@ -10,5 +10,4 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order,Long> {
 
     public List<Order> findByCategoryId(Long id);
-
 }
