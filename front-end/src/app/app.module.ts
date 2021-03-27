@@ -8,6 +8,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 // http://localhost:4200/
 const routes: Routes = [
+  // http://localhost:4200/
   {path: '', component:OrderItemsComponent}
 ];
 @NgModule({
