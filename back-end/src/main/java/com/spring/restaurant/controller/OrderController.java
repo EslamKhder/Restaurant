@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// http://localhost:8080
+// http://localhost:8080/api/
 
 @RestController
 @CrossOrigin("http://localhost:4200")
+@RequestMapping("/api/")
 public class OrderController {
     private OrderService orderService;
 
@@ -21,13 +22,13 @@ public class OrderController {
 
 
     // http://localhost:8080/api/allOrders
-    @GetMapping("/api/allOrders")
+    @GetMapping("allOrders")
     public List<Order> allOrders(){
         return orderService.getAllOrders();
     }
 
     // http://localhost:8080/api/category?id={value}
-    @GetMapping("/api/category")
+    @GetMapping("category")
     public List<Order> getAllOrderByCategoryId(@RequestParam Long id){
         return orderService.getOrdersByIdCategories(id);
     }
