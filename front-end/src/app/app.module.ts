@@ -8,9 +8,25 @@ import {RouterModule, Routes} from '@angular/router';
 
 // http://localhost:4200/
 const routes: Routes = [
-  // http://localhost:4200/
-  {path: '', component:OrderItemsComponent}
+
+  // http://localhost:4200/category/id
+  {path: 'category/:id', component:OrderItemsComponent},
+  // http://localhost:4200/category
+  {path: 'category', component:OrderItemsComponent},
+  // http://localhost:4200/orders
+  {path: 'orders', component:OrderItemsComponent},
+  // http://localhost:4200/S
+  {path: '', redirectTo: '/orders',pathMatch: 'full'},
+  // if user enter any thing without all routes
+  {path: '**', redirectTo: '/orders',pathMatch: 'full'},
+
+
 ];
+
+/*
+*   // http://localhost:4200/
+  {path: '', component:OrderItemsComponent}
+* */
 @NgModule({
   declarations: [
     AppComponent,
