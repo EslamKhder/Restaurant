@@ -1158,3 +1158,13 @@ section {
   background-color: tomato;
 
 }
+.order-item
+{
+  height: 710px;
+}
+.mybu
+{
+  position: absolute;
+  bottom: 0;
+  width: 270px;
+}

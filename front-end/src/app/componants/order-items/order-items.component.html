@@ -1,11 +1,11 @@
 <div class="row">
   <div *ngFor="let temp of orders" class="col-md-4 myorder">
-    <div class="card">
+    <div class="card order-item">
       <img src="assets/img/{{temp.img}}.jpg" alt="Denim Jeans" style="width:100%">
       <h1>{{temp.name}}</h1>
       <p class="price">{{temp.price | currency: 'USD'}}</p>
       <p class="dis">{{temp.description}}</p>
-      <button class="btn btn-primary">Add to Cart</button>
+      <button class="btn btn-primary mybu">Add to Cart</button>
     </div>
   </div>
 </div>
