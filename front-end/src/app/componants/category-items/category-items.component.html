@@ -1,6 +1,6 @@
 <ul>
 
-  <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
+  <li class="active"><a routerLink="/orders"><i class="bx bx-home"></i> <span>Home</span></a></li>
 
   <li *ngFor="let temp of categories">
     <a routerLink="category/{{temp.id}}"><i class="{{temp.logo}}"></i> <span>{{temp.name}}</span></a>
