@@ -3,7 +3,7 @@
   <li class="active"><a href="index.html"><i class="bx bx-home"></i> <span>Home</span></a></li>
 
   <li *ngFor="let temp of categories">
-    <a href="category/{{temp.id}}"><i class="{{temp.logo}}"></i> <span>{{temp.name}}</span></a>
+    <a routerLink="category/{{temp.id}}"><i class="{{temp.logo}}"></i> <span>{{temp.name}}</span></a>
   </li>
 </ul>
 
