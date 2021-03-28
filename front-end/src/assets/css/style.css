@@ -1183,3 +1183,9 @@ img
 .btn:not(:disabled):not(.disabled) {
   margin: 0px 0px 0px 0px !important;
 }
+
+.menu-active
+{
+  background-color: cadetblue;
+  color: aliceblue;
+}
