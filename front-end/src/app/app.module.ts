@@ -10,10 +10,13 @@ import { DropdownMenuComponent } from './componants/dropdown-menu/dropdown-menu.
 // http://localhost:4200/
 const routes: Routes = [
 
+
   // http://localhost:4200/category/id
   {path: 'category/:id', component:OrderItemsComponent},
   // http://localhost:4200/category
   {path: 'category', component:OrderItemsComponent},
+  // http://localhost:4200/orders/key
+  {path: 'orders/:key', component:OrderItemsComponent},
   // http://localhost:4200/orders
   {path: 'orders', component:OrderItemsComponent},
   // http://localhost:4200/S
