@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CategoryItemsComponent } from './componants/category-items/category-items.component';
 import {RouterModule, Routes} from '@angular/router';
 import { DropdownMenuComponent } from './componants/dropdown-menu/dropdown-menu.component';
+import { SearchOrderComponent } from './componants/search-order/search-order.component';
 
 // http://localhost:4200/
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
     AppComponent,
     OrderItemsComponent,
     CategoryItemsComponent,
-    DropdownMenuComponent
+    DropdownMenuComponent,
+    SearchOrderComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
