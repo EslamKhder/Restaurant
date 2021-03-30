@@ -8,6 +8,7 @@ import { DropdownMenuComponent } from './componants/dropdown-menu/dropdown-menu.
 import { SearchOrderComponent } from './componants/search-order/search-order.component';
 import { OrderDetailsComponent } from './componants/order-details/order-details.component';
 import {NgModule} from '@angular/core';
+import {NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 // http://localhost:4200/
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
+    NgbPaginationModule,
     //NgModule
   ],
   providers: [
