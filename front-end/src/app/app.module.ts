@@ -7,24 +7,28 @@ import { CategoryItemsComponent } from './componants/category-items/category-ite
 import {RouterModule, Routes} from '@angular/router';
 import { DropdownMenuComponent } from './componants/dropdown-menu/dropdown-menu.component';
 import { SearchOrderComponent } from './componants/search-order/search-order.component';
+import { OrderDetailsComponent } from './componants/order-details/order-details.component';
 
 // http://localhost:4200/
 const routes: Routes = [
 
-
   // http://localhost:4200/category/id
   {path: 'category/:id', component:OrderItemsComponent},
+
   // http://localhost:4200/category
   {path: 'category', component:OrderItemsComponent},
+
   // http://localhost:4200/orders/key
   {path: 'orders/:key', component:OrderItemsComponent},
+
   // http://localhost:4200/orders
   {path: 'orders', component:OrderItemsComponent},
-  // http://localhost:4200/S
-  {path: '', redirectTo: '/orders',pathMatch: 'full'},
-  // if user enter any thing without all routes
-  {path: '**', redirectTo: '/orders',pathMatch: 'full'},
 
+  // http://localhost:4200/
+  {path: '', redirectTo: '/orders',pathMatch: 'full'},
+
+  // if user enter any thing without all routes
+  {path: '**', redirectTo: '/orders',pathMatch: 'full'}
 
 ];
 
@@ -38,7 +42,8 @@ const routes: Routes = [
     OrderItemsComponent,
     CategoryItemsComponent,
     DropdownMenuComponent,
-    SearchOrderComponent
+    SearchOrderComponent,
+    OrderDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

@@ -1,0 +1,29 @@
+.mycard {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  width: 676px;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.oneOrder {
+  margin-top: 20px;
+  background-color: beige;
+  padding: 29px;
+  margin-left: 210px;
+}
+.orbut
+{
+  width: inherit;
+}
+<div class="row">
+  <div class="oneOrder">
+    <div class="mycard order-item">
+      <img src="assets/img/{{orders[0].img}}.jpg" alt="Denim Jeans" style="width:100%">
+      <h1>{{orders[0].name}}</h1>
+      <h3>{{orders[0].description}}</h3>
+      <p class="price">{{orders[0].price | currency: 'USD'}}</p>
+      <button class="btn btn-primary orbut">Add to Cart</button>
+    </div>
+  </div>
+</div>
