@@ -45,6 +45,11 @@ public class OrderController {
         return orderService.getOrder(id);
     }
 
+    // http://localhost:8080/api/orderSize
+    @GetMapping("orderSize")
+    public long orderSize(){
+        return orderService.getAllOrdersSize();
+    }
     // http://localhost:8080/api/category/id
     /*@GetMapping("/api/category/{id}")
     public List<Order> getAllOrderByCategoryId(@PathVariable Long id){
