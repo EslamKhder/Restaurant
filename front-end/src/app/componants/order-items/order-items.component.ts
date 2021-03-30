@@ -12,6 +12,10 @@ export class OrderItemsComponent implements OnInit {
 
   orders: Order[] = [];
   page: number = 1;
+  pageLength: number = 5;
+  orderSize: number = 17;
+  // 5 5 5 2
+  // 0 1 2 3
   constructor(private order: OrderServiceService,
               private route: ActivatedRoute) { }
 
@@ -35,15 +39,16 @@ export class OrderItemsComponent implements OnInit {
     }
   }
   getOrders(){
-    this.order.getOrders().subscribe(
+    this.order.getOrders(this.page-1,this.pageLength).subscribe(
       data => {
         this.orders = data
+        console.log(data)
       }
     )
   }
   getOrderByCategoryId(){
     let idCategory = this.route.snapshot.paramMap.get('id');
-    this.order.getOrdersByCategoryId(idCategory).subscribe(
+    this.order.getOrdersByCategoryId(idCategory,this.page-1,this.pageLength).subscribe(
       data => {
         this.orders = data
       }
@@ -51,7 +56,7 @@ export class OrderItemsComponent implements OnInit {
   }
   getAllOrdersContainingKey(){
     let keyWord = this.route.snapshot.paramMap.get('key');
-    this.order.getOrdersByKey(keyWord).subscribe(
+    this.order.getOrdersByKey(keyWord,this.page-1,this.pageLength).subscribe(
       data => {
         this.orders = data
       }
@@ -59,6 +64,7 @@ export class OrderItemsComponent implements OnInit {
   }
 
   doing() {
-    alert(this.page)
+    alert(this.page-1)
+    this.finishOrders()
   }
 }
