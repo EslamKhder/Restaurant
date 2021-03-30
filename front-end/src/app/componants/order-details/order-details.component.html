@@ -1,10 +1,16 @@
+<!--
+<a routerLink="/orders">
+  <i class="fas fa-undo"></i>
+</a>
+-->
+<i (click)="allOrders()" class="fas fa-undo"></i>
 <div class="row">
   <div class="oneOrder">
     <div class="mycard order-item">
       <img src="assets/img/{{order.img}}.jpg" alt="Denim Jeans" style="width:100%">
       <h1>{{order.name}}</h1>
       <h3>{{order.description}}</h3>
-      <p class="price">{{order.price}}</p>
+      <p class="price">{{order.price | currency: 'USD'}}</p>
       <button class="btn btn-primary orbut">Add to Cart</button>
     </div>
   </div>

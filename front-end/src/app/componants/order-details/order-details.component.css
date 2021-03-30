@@ -16,3 +16,15 @@
 {
   width: inherit;
 }
+i{
+  font-size: 55px;
+  position: absolute;
+  top: 74px;
+  background-color: #5d5c5a;
+  color: white;
+  border-radius: 39px;
+  width: 70px;
+  height: 67px;
+  padding: 9px;
+  cursor: pointer;
+}

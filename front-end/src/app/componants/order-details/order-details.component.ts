@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {OrderServiceService} from '../../service/order-service.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Order} from '../../model/order';
 
 @Component({
@@ -12,7 +12,8 @@ export class OrderDetailsComponent implements OnInit {
 
   order: Order = null;
   constructor(private orderService: OrderServiceService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getOrder()
@@ -27,4 +28,7 @@ export class OrderDetailsComponent implements OnInit {
     )
   }
 
+  allOrders() {
+    this.router.navigateByUrl('/orders')
+  }
 }
