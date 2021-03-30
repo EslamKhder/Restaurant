@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { OrderItemsComponent } from './componants/order-items/order-items.component';
@@ -8,6 +7,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { DropdownMenuComponent } from './componants/dropdown-menu/dropdown-menu.component';
 import { SearchOrderComponent } from './componants/search-order/search-order.component';
 import { OrderDetailsComponent } from './componants/order-details/order-details.component';
+import {NgModule} from '@angular/core';
 
 // http://localhost:4200/
 const routes: Routes = [
@@ -52,7 +52,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    //NgModule
   ],
   providers: [
   ],
