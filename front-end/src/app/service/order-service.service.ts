@@ -44,4 +44,26 @@ export class OrderServiceService {
       )
     )
   }
+  getOrdersLength(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}orderSize`).pipe(
+      map(
+        response => response
+      )
+    )
+  }
+  getOrdersLengthByCategoryId(id): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}ctegoryidsize?id=${id}`).pipe(
+      map(
+        response => response
+      )
+    )
+  }
+  getOrdersLengthByKey(word): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}keysize?key=${word}`).pipe(
+      map(
+        response => response
+      )
+    )
+  }
+
 }
