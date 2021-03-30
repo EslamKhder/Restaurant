@@ -12,8 +12,8 @@ export class OrderItemsComponent implements OnInit {
 
   orders: Order[] = [];
   page: number = 1;
-  pageLength: number = 5;
-  orderSize: number = 17;
+  pageLength: number = 5; // 78    5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 3
+  orderSize: number = 0;
   // 5 5 5 2
   // 0 1 2 3
   constructor(private order: OrderServiceService,
@@ -39,6 +39,11 @@ export class OrderItemsComponent implements OnInit {
     }
   }
   getOrders(){
+    this.order.getOrdersLength().subscribe(
+      data => {
+        this.orderSize = data
+      }
+    )
     this.order.getOrders(this.page-1,this.pageLength).subscribe(
       data => {
         this.orders = data
@@ -48,6 +53,11 @@ export class OrderItemsComponent implements OnInit {
   }
   getOrderByCategoryId(){
     let idCategory = this.route.snapshot.paramMap.get('id');
+    this.order.getOrdersLengthByCategoryId(idCategory).subscribe(
+      data => {
+        this.orderSize = data
+      }
+    )
     this.order.getOrdersByCategoryId(idCategory,this.page-1,this.pageLength).subscribe(
       data => {
         this.orders = data
@@ -56,6 +66,11 @@ export class OrderItemsComponent implements OnInit {
   }
   getAllOrdersContainingKey(){
     let keyWord = this.route.snapshot.paramMap.get('key');
+    this.order.getOrdersLengthByKey(keyWord).subscribe(
+      data => {
+        this.orderSize = data
+      }
+    )
     this.order.getOrdersByKey(keyWord,this.page-1,this.pageLength).subscribe(
       data => {
         this.orders = data
@@ -64,7 +79,6 @@ export class OrderItemsComponent implements OnInit {
   }
 
   doing() {
-    alert(this.page-1)
     this.finishOrders()
   }
 }
