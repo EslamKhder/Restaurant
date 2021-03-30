@@ -1,0 +1,9 @@
+<div class="col-md-9 pag" style="padding-left: 30%">
+    <ngb-pagination>
+    </ngb-pagination>
+  </div>
+.pag
+{
+  padding-left: 30%;
+  margin: 20px 520px;
+}
