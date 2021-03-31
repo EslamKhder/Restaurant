@@ -14,6 +14,6 @@ export class CartOrder {
     this.name = order.name;
     this.img = order.img;
     this.price = order.price;
-    this.quantity = 1;
+    this.quantity = 1; //
   }
 }
