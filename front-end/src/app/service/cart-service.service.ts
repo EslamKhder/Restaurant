@@ -6,6 +6,9 @@ import {CartOrder} from '../model/cart-order';
 })
 export class CartServiceService {
 
+  orders: CartOrder[] = [];
+  totalOrders: number = 0;
+  totalPrice: number = 0;
   constructor() { }
 
 }
