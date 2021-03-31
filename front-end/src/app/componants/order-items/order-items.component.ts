@@ -86,4 +86,9 @@ export class OrderItemsComponent implements OnInit {
     this.pageLength = +(<HTMLInputElement>event.target).value
     this.finishOrders()
   }
+
+
+  addToCart(temp: Order) {
+    console.log(temp)
+  }
 }
