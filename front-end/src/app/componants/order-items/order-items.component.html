@@ -23,6 +23,17 @@
                     [boundaryLinks]="true"
     >
     </ngb-pagination>
+
+    <div class="sel">
+      <span class="mr-2">Page Size</span>
+      <select (change)="pageSize($event)">
+        <option>2</option>
+        <option>5</option>
+        <option selected="true">10</option>
+        <option>20</option>
+        <option>50</option>
+      </select>
+    </div>
   </div>
 
 </div>

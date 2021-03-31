@@ -12,7 +12,7 @@ export class OrderItemsComponent implements OnInit {
 
   orders: Order[] = [];
   page: number = 1;
-  pageLength: number = 5; // 78    5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 3
+  pageLength: number = 5;
   orderSize: number = 0;
   // 5 5 5 2
   // 0 1 2 3
@@ -79,6 +79,11 @@ export class OrderItemsComponent implements OnInit {
   }
 
   doing() {
+    this.finishOrders()
+  }
+
+  pageSize(event: Event) {
+    this.pageLength = +(<HTMLInputElement>event.target).value
     this.finishOrders()
   }
 }
