@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Order} from '../../model/order';
 import {OrderServiceService} from '../../service/order-service.service';
 import {ActivatedRoute} from '@angular/router';
+import {CartOrder} from '../../model/cart-order';
 
 @Component({
   selector: 'app-order-items',
@@ -89,6 +90,7 @@ export class OrderItemsComponent implements OnInit {
 
 
   addToCart(temp: Order) {
-    console.log(temp)
+    const cartorder = new CartOrder(temp);
+    console.log(cartorder)
   }
 }
