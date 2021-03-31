@@ -16,12 +16,13 @@ export class CartServiceService {
     let isExist: boolean = false;
     let existOrder :CartOrder = undefined;
     if(this.orders.length > 0){
-      for(let temp of this.orders){
+      /*for(let temp of this.orders){
         if(temp.id === order.id){
           existOrder = temp;
           break;
         }
-      }
+      }*/
+      existOrder = this.orders.find(temp =>temp.id === order.id);
     }
     isExist = (existOrder != undefined); // true   false
      if(isExist){
@@ -29,6 +30,7 @@ export class CartServiceService {
     }else {
       this.orders.push(order)
     }
+     console.log(this.orders)
   }
 
 }
