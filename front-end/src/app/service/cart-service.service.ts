@@ -31,7 +31,21 @@ export class CartServiceService {
       this.orders.push(order)
     }
      console.log(this.orders)
+     this.calculateTotals();
   }
+  calculateTotals() {
+    let totalElementsSizeOrder: number = 0;
+    let totalPriceOrders: number = 0;
+    for (let temp of this.orders) {
+      totalElementsSizeOrder += temp.quantity; // totalElementsSizeOrder = totalElementsSizeOrder +temp.quantity;
+      totalPriceOrders += temp.quantity * temp.price;
+    }
+    this.totalOrders = totalElementsSizeOrder;
+    this.totalPrice = totalPriceOrders;
+    console.log("Size = " + this.totalOrders)
+    console.log("Price = " + this.totalPrice)
+  }
+
 
 }
 /*
