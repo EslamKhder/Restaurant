@@ -5,7 +5,7 @@
       <div class="totprice to2">{{temp.price | currency: 'USD'}}</div>
       <img src="assets/img/{{temp.img}}.jpg" alt="Denim Jeans" style="width:100%">
       <h1>{{temp.name}}</h1>
-      <p class="price"><i class="fas fa-plus"></i><span>{{temp.quantity}}</span><i class="fas fa-minus"></i></p>
+      <p class="price"><i (click)="addOrder(temp)" class="fas fa-plus"></i><span>{{temp.quantity}}</span><i class="fas fa-minus"></i></p>
       <button  class="btn btn-primary mybu">Remove</button>
     </div>
   </div>
