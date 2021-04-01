@@ -27,4 +27,8 @@ export class PurchasesComponent implements OnInit {
   removeOrder(temp: CartOrder) {
     this.cart.removeOrder(temp)
   }
+
+  remove(temp: CartOrder) {
+    this.cart.remove(temp)
+  }
 }

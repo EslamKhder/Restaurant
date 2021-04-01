@@ -9,7 +9,7 @@
         <i (click)="addOrder(temp)" class="fas fa-plus"></i>
         <span>{{temp.quantity}}</span>
         <i (click)="removeOrder(temp)" class="fas fa-minus"></i></p>
-      <button  class="btn btn-primary mybu">Remove</button>
+      <button (click)="remove(temp)" class="btn btn-primary mybu">Remove</button>
     </div>
   </div>
 </div>
