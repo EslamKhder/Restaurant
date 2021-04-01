@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CartOrder} from '../../model/cart-order';
+import {CartServiceService} from '../../service/cart-service.service';
 
 @Component({
   selector: 'app-purchases',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchasesComponent implements OnInit {
 
-  constructor() { }
+  orders: CartOrder[] = [];
+  constructor(private cart: CartServiceService) { }
 
   ngOnInit(): void {
+    this.getAllOrders()
+  }
+
+  getAllOrders(){
+    this.orders = this.cart.orders;
   }
 
 }
