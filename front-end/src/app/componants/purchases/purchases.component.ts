@@ -10,12 +10,28 @@ import {CartServiceService} from '../../service/cart-service.service';
 export class PurchasesComponent implements OnInit {
 
   orders: CartOrder[] = [];
+  totalOrder: number = 0;
+  totalPrice: number = 0;
   constructor(private cart: CartServiceService) { }
 
   ngOnInit(): void {
     this.getAllOrders()
+    this.getTotals()
+    this.cart.calculateTotals()
   }
 
+  getTotals(){
+    this.cart.totalOrders.subscribe(
+      data => {
+        this.totalOrder = data
+      }
+    )
+    this.cart.totalPrice.subscribe(
+      data => {
+        this.totalPrice = data
+      }
+    )
+  }
   getAllOrders(){
     this.orders = this.cart.orders;
   }

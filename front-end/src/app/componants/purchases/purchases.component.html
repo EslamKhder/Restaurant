@@ -12,8 +12,14 @@
       <button (click)="remove(temp)" class="btn btn-primary mybu">Remove</button>
     </div>
   </div>
+
 </div>
 <div *ngIf="orders?.length == 0" class="alert alert-danger" role="alert">
   No Orders Found
+</div>
+<div class="check-out">
+  <div class="size">Total Order : {{totalOrder}}</div>
+  <div class="totalprice">Total Price : {{totalPrice | currency: 'USD'}}</div>
+  <button *ngIf="orders.length !== 0" type="button" class="btn btn-primary done">Check Out</button>
 </div>
 
