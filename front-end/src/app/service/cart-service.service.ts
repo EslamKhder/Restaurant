@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {CartOrder} from '../model/cart-order';
 import {Subject} from 'rxjs';
+import {templateJitUrl} from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -48,8 +49,26 @@ export class CartServiceService {
     console.log("Price = " + this.totalPrice)
   }
 
-
+  removeOrder(order: CartOrder){
+    order.quantity--;
+    if(order.quantity === 0){
+      this.remove(order)
+    } else {
+      this.calculateTotals()
+    }
+  }
+  remove(order: CartOrder){
+    const index = this.orders.findIndex(temp => temp.id === order.id) // index or -1
+    if(index > -1){
+      this.orders.splice(index,1)
+      this.calculateTotals()
+    }
+  }
 }
+
+// // [5,6,8,9]    // index = 2
+
+// .slice(2,1)
 /*
       "5" == 5    true
       "5" === 5   false
