@@ -1,0 +1,19 @@
+<div class="sel">
+      <span class="mr-2">Page Size</span>
+      <select >
+        <option>2</option>
+        <option>5</option>
+        <option selected="true">10</option>
+        <option>20</option>
+        <option>50</option>
+      </select>
+    </div>
+------------------------------------------------------------------------------
+.sel
+{
+  background-color: #e3e347;
+  padding: 18px;
+  width: 168px;
+  margin-left: 622px;
+  margin-top: -70px;
+}
