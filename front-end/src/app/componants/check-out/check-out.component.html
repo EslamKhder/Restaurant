@@ -1,4 +1,4 @@
-<div class="row" [formGroup]="checkoutParentGroup">
+<form (ngSubmit)="done()" class="row" [formGroup]="checkoutParentGroup">
         <div formGroupName="data" class="col-md-8 myorder data">
           <label class="myla">Your Data</label>
           <div class="input-group mb-3">
@@ -100,12 +100,13 @@
 
         </div>
 
+        <div class="check-out">
+          <div class="size">Total Order : </div>
+          <div class="totalprice">Total Price : </div>
+          <button type="submit" class="btn btn-primary done">Check Out</button>
+        </div>
 
 
-</div>
+</form>
 
-<div class="check-out">
-  <div class="size">Total Order : </div>
-  <div class="totalprice">Total Price : </div>
-  <button type="button" class="btn btn-primary done">Check Out</button>
-</div>
+
