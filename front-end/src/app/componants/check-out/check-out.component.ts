@@ -19,9 +19,14 @@ export class CheckOutComponent implements OnInit {
         phone: ['']
       }),
       fromPerson: this.formChildGroup.group({
-        country: ['Egypt'],
-        state: ['Menofia'],
-        zipCode: ['048']
+        country: [''],
+        state: [''],
+        zipCode: ['']
+      }),
+      toPerson: this.formChildGroup.group({
+        country: [''],
+        state: [''],
+        zipCode: ['']
       })
     })
   }
