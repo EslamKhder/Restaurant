@@ -19,10 +19,10 @@
         </div>
 
 
-        <div class="col-md-8 myorder data">
+        <div formGroupName="fromPerson" class="col-md-8 myorder data">
           <label class="myla">From : </label>
           <div class="input-group mb-3">
-            <select class="form-select">
+            <select formControlName="country" class="form-select">
               <option selected>Choose...</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -31,7 +31,7 @@
             <label class="input-group-text myin" for="inputGroupSelect02">Country</label>
           </div>
           <div class="input-group mb-3">
-            <select class="form-select" id="inputGroupSelect02">
+            <select formControlName="state" class="form-select" id="inputGroupSelect02">
               <option selected>Choose...</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -41,7 +41,7 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Zip Code</span>
-            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+            <input formControlName="zipCode" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
           </div>
 
         </div>

@@ -17,6 +17,11 @@ export class CheckOutComponent implements OnInit {
         fullName: [''],
         gmail: [''],
         phone: ['']
+      }),
+      fromPerson: this.formChildGroup.group({
+        country: ['Egypt'],
+        state: ['Menofia'],
+        zipCode: ['048']
       })
     })
   }
