@@ -12,6 +12,10 @@ export class CheckOutComponent implements OnInit {
   constructor(private formChildGroup: FormBuilder) { }
 
   ngOnInit(): void {
+    this.myForm()
+  }
+
+  myForm(){
     this.checkoutParentGroup = this.formChildGroup.group({
       data: this.formChildGroup.group({
         fullName: [''],
@@ -27,10 +31,13 @@ export class CheckOutComponent implements OnInit {
         country: [''],
         state: [''],
         zipCode: ['']
+      }),
+      creditCard: this.formChildGroup.group({
+        cardType: ['Visa'],
+        cardNumber: [''],
+        code: ['']
       })
     })
   }
-
-
 
 }
