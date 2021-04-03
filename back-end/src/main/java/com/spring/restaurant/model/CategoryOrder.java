@@ -16,9 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
-public class CategoryOrder extends BaseEntity{
-    @Column(name = "name")
-    private String name;
+public class CategoryOrder extends PublicData{
 
     @Column(name = "data_create")
     @CreationTimestamp
