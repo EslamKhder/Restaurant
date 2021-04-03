@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class CategoryController {
 
     private CategoryService categoryService;
@@ -23,7 +23,7 @@ public class CategoryController {
     }
 
     // http://localhost:8080/api/allCategoies
-    @GetMapping("allCategoies")
+    @GetMapping("/allCategoies")
     public List<Category> getAllCategory(){
         return categoryService.allCategories();
     }
