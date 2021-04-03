@@ -13,7 +13,11 @@ export class CheckOutComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkoutParentGroup = this.formChildGroup.group({
-
+      data: this.formChildGroup.group({
+        fullName: [''],
+        gmail: [''],
+        phone: ['']
+      })
     })
   }
 
