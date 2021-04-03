@@ -1,0 +1,33 @@
+.check-out
+{
+  border-radius: 30px;
+  background-color: white;
+  padding: 20px;
+  width: 400px;
+  font-size: 21px;
+  font-weight: bold;
+}
+.done
+{
+  width: 366px;
+}
+.size
+{
+  background-color: crimson;
+  padding: 8px;
+  color: aliceblue;
+  margin-bottom: 5px;
+}
+.totalprice
+{
+  margin-bottom: 20px;
+  background-color: blueviolet;
+  padding: 8px;
+  color: aliceblue;
+}
+--------------------------------------------------------
+<div class="check-out">
+  <div class="size">Total Order : 50</div>
+  <div class="totalprice">Total Price : $50</div>
+  <button type="button" class="btn btn-primary done">Done</button>
+</div>

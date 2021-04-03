@@ -1,0 +1,42 @@
+
+select {
+  width: 88%;
+}
+
+.myin{
+
+  width: 76px;
+}
+.data
+{
+  margin-bottom: 10px;
+  margin-left: 15%;
+  background-color: grey;
+  border-radius: 52px;
+}
+
+.myla
+{
+  font-weight: bold;
+  background-color: brown;
+  padding: 7px;
+  color: white;
+  width: 97px;
+  text-align: center;
+  margin: 10px 42%;
+}
+.smi
+{
+  margin-bottom: 0;
+  font-style: normal;
+  font-weight: bold;
+  color: aliceblue ;
+  margin-left: 35px;
+  font-size: 20px;
+}
+input[type="radio"], input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+  width: 51px;
+  height: 21px;
+}
