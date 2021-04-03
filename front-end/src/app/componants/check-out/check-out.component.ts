@@ -46,4 +46,13 @@ export class CheckOutComponent implements OnInit {
     console.log(this.checkoutParentGroup.get('toPerson').value)
     console.log(this.checkoutParentGroup.get('creditCard').value)
   }
+
+  similarGroup(event: Event) {
+    if((<HTMLInputElement>event.target).checked){
+      this.checkoutParentGroup.controls.toPerson
+        .setValue(this.checkoutParentGroup.controls.fromPerson.value)
+    } else {
+      this.checkoutParentGroup.controls.toPerson.reset()
+    }
+  }
 }
