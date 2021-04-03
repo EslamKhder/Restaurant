@@ -20,6 +20,6 @@
 <div class="check-out">
   <div class="size">Total Order : {{totalOrder}}</div>
   <div class="totalprice">Total Price : {{totalPrice | currency: 'USD'}}</div>
-  <button *ngIf="orders.length !== 0" type="button" class="btn btn-primary done">Check Out</button>
+    <button (click)="checkOut()" *ngIf="orders.length !== 0" type="button" class="btn btn-primary done">Check Out</button>
 </div>
 
