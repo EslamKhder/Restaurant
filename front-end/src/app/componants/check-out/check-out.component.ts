@@ -13,7 +13,9 @@ export class CheckOutComponent implements OnInit {
 
   checkoutParentGroup: FormGroup;
   countries: Country[] = [];
-  states: State[] = [];
+  statesFromPerson: State[] = [];
+  statesToPerson: State[] = [];
+
   constructor(private formChildGroup: FormBuilder,
               private stateCountry: StateCountryServiceService) { }
 
@@ -79,12 +81,16 @@ export class CheckOutComponent implements OnInit {
       }
     )
   }*/
-  getStatesByCode(){
-    const code = this.checkoutParentGroup.get('fromPerson.country').value
-    alert(code)
+  getStatesByCode(typeForm){
+    const code = this.checkoutParentGroup.get(`${typeForm}.country`).value
+
     this.stateCountry.getStatesByCode(code).subscribe(
       data =>{
-        this.states = data
+        if(typeForm === 'fromPerson'){
+          this.statesFromPerson = data
+        } else {
+          this.statesToPerson = data
+        }
       }
     )
   }
