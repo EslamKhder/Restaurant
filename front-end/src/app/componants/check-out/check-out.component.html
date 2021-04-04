@@ -31,19 +31,20 @@
             <span class="input-group-text">Phone Number</span>
             <input formControlName="phone" type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon3">
           </div>
-          <div class="alert alert-danger" role="alert">
-            Phone is Required
+          <div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+              <div *ngIf="phone.errors.required" class="alert alert-danger" role="alert">
+                Phone is Required
+              </div>
+              <div *ngIf="phone.errors.maxlength" class="alert alert-danger" role="alert">
+                Phone must be not more than 11 digit
+              </div>
+              <div *ngIf="phone.errors.minlength" class="alert alert-danger" role="alert">
+                Phone must be not less than 11 digit
+              </div>
+              <div *ngIf="phone.errors.pattern" class="alert alert-danger" role="alert">
+                Invalid Phone
+              </div>
           </div>
-          <div class="alert alert-danger" role="alert">
-            Phone must be not more than 11 digit
-          </div>
-          <div class="alert alert-danger" role="alert">
-            Phone must be not less than 11 digit
-          </div>
-          <div class="alert alert-danger" role="alert">
-            Invalid Phone
-          </div>
-
         </div>
 
 

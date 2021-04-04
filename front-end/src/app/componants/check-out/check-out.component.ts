@@ -73,10 +73,15 @@ export class CheckOutComponent implements OnInit {
 
 
   done() {
-    console.log(this.checkoutParentGroup.get('data.fullName').value)
-    console.log(this.checkoutParentGroup.get('fromPerson').value)
-    console.log(this.checkoutParentGroup.get('toPerson').value)
-    console.log(this.checkoutParentGroup.get('creditCard').value)
+    if (this.checkoutParentGroup.invalid) {
+      this.checkoutParentGroup.markAllAsTouched()
+    } else {
+      console.log(this.checkoutParentGroup.get('data').value)
+      console.log(this.checkoutParentGroup.get('fromPerson').value)
+      console.log(this.checkoutParentGroup.get('toPerson').value)
+      console.log(this.checkoutParentGroup.get('creditCard').value)
+    }
+
   }
 
   similarGroup(event: Event) {
