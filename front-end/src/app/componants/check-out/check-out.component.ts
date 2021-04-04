@@ -61,6 +61,17 @@ export class CheckOutComponent implements OnInit {
     })
   }
 
+  get fullName(){
+    return this.checkoutParentGroup.get('data.fullName')
+  }
+  get email(){
+    return this.checkoutParentGroup.get('data.gmail')
+  }
+  get phone(){
+    return this.checkoutParentGroup.get('data.phone')
+  }
+
+
   done() {
     console.log(this.checkoutParentGroup.get('data.fullName').value)
     console.log(this.checkoutParentGroup.get('fromPerson').value)
