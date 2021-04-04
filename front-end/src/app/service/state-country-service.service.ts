@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Country} from '../model/country';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {State} from '../model/state';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,11 @@ export class StateCountryServiceService {
       )
     )
   }
-
-
+  getAllStates(): Observable<State[]>{
+    return this.http.get<State[]>(`${this.baseUrl}states`).pipe(
+      map(
+        response => response
+      )
+    )
+  }
 }
