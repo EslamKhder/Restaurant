@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {StateCountryServiceService} from '../../service/state-country-service.service';
 import {Country} from '../../model/country';
 import {State} from '../../model/state';
@@ -29,9 +29,19 @@ export class CheckOutComponent implements OnInit {
   myForm(){
     this.checkoutParentGroup = this.formChildGroup.group({
       data: this.formChildGroup.group({
-        fullName: [''],
-        gmail: [''],
-        phone: ['']
+        fullName: new FormControl('',[
+          Validators.required,
+          Validators.minLength(6)]),
+        gmail: new FormControl('',[
+          Validators.required,
+          Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')
+        ]),
+        phone: new FormControl('',[
+          Validators.required,
+          Validators.minLength(11),
+          Validators.maxLength(11),
+          Validators.pattern('^[0-9]*$')
+        ])
       }),
       fromPerson: this.formChildGroup.group({
         country: [''],
