@@ -6,14 +6,39 @@
             <input formControlName="fullName" type="text" class="form-control" placeholder="Full Name" aria-label="Username" aria-describedby="basic-addon1">
           </div>
 
+          <div class="alert alert-danger" role="alert">
+            Full Name Is Required
+          </div>
+          <div class="alert alert-danger" role="alert">
+            Full Name must be not less than 6 digit
+          </div>
+
           <div class="input-group mb-3">
             <input formControlName="gmail" type="text" class="form-control" placeholder="gmail" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <span class="input-group-text" >@gmail.com</span>
           </div>
 
+          <div class="alert alert-danger" role="alert">
+            Email is Required
+          </div>
+          <div class="alert alert-danger" role="alert">
+            Invalid Email
+          </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Phone Number</span>
             <input formControlName="phone" type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon3">
+          </div>
+          <div class="alert alert-danger" role="alert">
+            Phone is Required
+          </div>
+          <div class="alert alert-danger" role="alert">
+            Phone must be not more than 11 digit
+          </div>
+          <div class="alert alert-danger" role="alert">
+            Phone must be not less than 11 digit
+          </div>
+          <div class="alert alert-danger" role="alert">
+            Invalid Phone
           </div>
 
         </div>
