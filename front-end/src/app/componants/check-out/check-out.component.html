@@ -6,7 +6,7 @@
             <input formControlName="fullName" type="text" class="form-control" placeholder="Full Name" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
-            <div *ngIf="fullName.errors.required" class="alert alert-danger" role="alert">
+            <div *ngIf="fullName.errors.required || fullName.errors.noSpace" class="alert alert-danger" role="alert">
               Full Name Is Required
             </div>
             <div *ngIf="fullName.errors.minlength" class="alert alert-danger" role="alert">

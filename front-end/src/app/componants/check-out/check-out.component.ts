@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {StateCountryServiceService} from '../../service/state-country-service.service';
 import {Country} from '../../model/country';
 import {State} from '../../model/state';
+import {SpaceValidator} from '../../model/space-validator';
 
 @Component({
   selector: 'app-check-out',
@@ -31,6 +32,7 @@ export class CheckOutComponent implements OnInit {
       data: this.formChildGroup.group({
         fullName: new FormControl('',[
           Validators.required,
+          SpaceValidator.onlyContainSpace,
           Validators.minLength(6)]),
         gmail: new FormControl('',[
           Validators.required,
