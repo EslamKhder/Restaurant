@@ -5,7 +5,6 @@
             <span class="input-group-text" >@</span>
             <input formControlName="fullName" type="text" class="form-control" placeholder="Full Name" aria-label="Username" aria-describedby="basic-addon1">
           </div>
-
           <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
             <div *ngIf="fullName.errors.required" class="alert alert-danger" role="alert">
               Full Name Is Required
@@ -20,11 +19,13 @@
             <span class="input-group-text" >@gmail.com</span>
           </div>
 
-          <div class="alert alert-danger" role="alert">
-            Email is Required
-          </div>
-          <div class="alert alert-danger" role="alert">
-            Invalid Email
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" >
+            <div *ngIf="email.errors.required" class="alert alert-danger" role="alert">
+              Email is Required
+            </div>
+            <div *ngIf="email.errors.pattern" class="alert alert-danger" role="alert">
+              Invalid Email
+            </div>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Phone Number</span>
