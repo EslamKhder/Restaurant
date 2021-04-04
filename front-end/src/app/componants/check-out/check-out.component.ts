@@ -20,7 +20,8 @@ export class CheckOutComponent implements OnInit {
   ngOnInit(): void {
     this.myForm()
     this.getAllCountries()
-    this.getAllStates()
+    //this.getAllStates()
+    //this.getStatesByCode()
   }
 
   myForm(){
@@ -71,9 +72,18 @@ export class CheckOutComponent implements OnInit {
       }
     )
   }
-  getAllStates() {
+  /*getAllStates() {
     this.stateCountry.getAllStates().subscribe(
       data => {
+        this.states = data
+      }
+    )
+  }*/
+  getStatesByCode(){
+    const code = this.checkoutParentGroup.get('fromPerson.country').value
+    alert(code)
+    this.stateCountry.getStatesByCode(code).subscribe(
+      data =>{
         this.states = data
       }
     )
