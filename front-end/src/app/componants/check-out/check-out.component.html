@@ -29,7 +29,7 @@
           </div>
           <div class="input-group mb-3">
             <select formControlName="state" class="form-select" id="inputGroupSelect02">
-              <option *ngFor="let temp of statesFromPerson">{{temp.name}}</option>
+              <option [ngValue]="temp" *ngFor="let temp of statesFromPerson">{{temp.name}}</option>
             </select>
             <label class="input-group-text myin" for="inputGroupSelect02">State</label>
           </div>
@@ -57,7 +57,7 @@
           </div>
           <div class="input-group mb-3">
             <select formControlName="state" class="form-select" >
-              <option *ngFor="let temp of statesToPerson">{{temp.name}}</option>
+              <option [ngValue]="temp" *ngFor="let temp of statesToPerson">{{temp.name}}</option>
             </select>
             <label class="input-group-text myin" >State</label>
           </div>

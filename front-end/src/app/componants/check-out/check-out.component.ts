@@ -62,6 +62,8 @@ export class CheckOutComponent implements OnInit {
     if((<HTMLInputElement>event.target).checked){
       this.checkoutParentGroup.controls.toPerson
         .setValue(this.checkoutParentGroup.controls.fromPerson.value)
+      this.statesToPerson = this.statesFromPerson
+
     } else {
       this.checkoutParentGroup.controls.toPerson.reset()
     }
@@ -91,6 +93,7 @@ export class CheckOutComponent implements OnInit {
         } else {
           this.statesToPerson = data
         }
+        this.checkoutParentGroup.get(`${typeForm}.state`).setValue(data[0])
       }
     )
   }
