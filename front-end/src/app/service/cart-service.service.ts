@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {CartOrder} from '../model/cart-order';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {templateJitUrl} from '@angular/compiler';
 
 @Injectable({
@@ -9,9 +9,8 @@ import {templateJitUrl} from '@angular/compiler';
 export class CartServiceService {
 
   orders: CartOrder[] = [];
-  totalOrders: Subject<number> = new Subject<number>();
-  totalPrice: Subject<number> = new Subject<number>();
-
+  totalOrders: Subject<number> = new BehaviorSubject<number>(0);
+  totalPrice: Subject<number> = new BehaviorSubject<number>(0);
 
   constructor() { }
 
