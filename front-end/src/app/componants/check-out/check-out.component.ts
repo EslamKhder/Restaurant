@@ -4,6 +4,7 @@ import {StateCountryServiceService} from '../../service/state-country-service.se
 import {Country} from '../../model/country';
 import {State} from '../../model/state';
 import {SpaceValidator} from '../../model/space-validator';
+import {CartServiceService} from '../../service/cart-service.service';
 
 @Component({
   selector: 'app-check-out',
@@ -16,13 +17,17 @@ export class CheckOutComponent implements OnInit {
   countries: Country[] = [];
   statesFromPerson: State[] = [];
   statesToPerson: State[] = [];
+  totalSize: number = 0;
+  totalPrice: number= 0;
 
   constructor(private formChildGroup: FormBuilder,
-              private stateCountry: StateCountryServiceService) { }
+              private stateCountry: StateCountryServiceService,
+              private card: CartServiceService) { }
 
   ngOnInit(): void {
     this.myForm()
     this.getAllCountries()
+    this.getTotals()
     //this.getAllStates()
     //this.getStatesByCode()
   }
@@ -56,13 +61,12 @@ export class CheckOutComponent implements OnInit {
         zipCode: ['']
       }),
       creditCard: this.formChildGroup.group({
-        cardType: ['Visa'],
+        cardType: [''],
         cardNumber: [''],
         code: ['']
       })
     })
   }
-
   get fullName(){
     return this.checkoutParentGroup.get('data.fullName')
   }
@@ -122,6 +126,19 @@ export class CheckOutComponent implements OnInit {
           this.statesToPerson = data
         }
         this.checkoutParentGroup.get(`${typeForm}.state`).setValue(data[0])
+      }
+    )
+  }
+
+  getTotals(){
+    this.card.totalOrders.subscribe(
+      data => {
+        this.totalSize = data
+      }
+    )
+    this.card.totalPrice.subscribe(
+      data => {
+        this.totalPrice = data
       }
     )
   }
