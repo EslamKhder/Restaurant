@@ -21,4 +21,6 @@ public class Item extends BaseEntity{
 
     @Column(name = "price")
     private int price;
+
+    private RequestOrder requestOrder;
 }

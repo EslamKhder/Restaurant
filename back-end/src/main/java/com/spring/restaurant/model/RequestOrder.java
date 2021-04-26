@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -27,5 +28,11 @@ public class RequestOrder extends CategoryOrder{
 
     @Column(name = "total_quantity")
     private int totalQuantity;
+
+    private Set<Item> items;
+
+    private Client client;
+
+    private Address address;
 
 }
