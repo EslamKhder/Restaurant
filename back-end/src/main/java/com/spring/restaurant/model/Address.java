@@ -1,12 +1,11 @@
 package com.spring.restaurant.model;
 
-public class Address {
-
-    private long id;
+public class Address extends CategoryOrder{
 
     private String country;
 
     private String state;
 
     private String zipCode;
+
 }

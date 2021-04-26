@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "orders")
-public class Order extends CategoryOrder{
+public class Order extends PublicData{
 
     @Column(name = "price")
     private int price;

@@ -1,10 +1,7 @@
 package com.spring.restaurant.model;
 
-import java.util.Date;
 
-public class RequestOrder {
-
-    private long id;
+public class RequestOrder extends CategoryOrder{
 
     private String code;
 
@@ -13,9 +10,5 @@ public class RequestOrder {
     private int totalPrice;
 
     private int totalQuantity;
-
-    private Date dateCreated;
-
-    private Date dateC_updated;
 
 }

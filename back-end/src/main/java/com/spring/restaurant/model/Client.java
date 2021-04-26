@@ -1,12 +1,10 @@
 package com.spring.restaurant.model;
 
-public class Client {
-
-    private long id;
-
-    private String fullName;
+public class Client extends PublicData{
 
     private String email;
 
     private String phoneNumber;
+
+
 }
