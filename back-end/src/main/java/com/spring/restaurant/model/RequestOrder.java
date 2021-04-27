@@ -33,11 +33,11 @@ public class RequestOrder extends CategoryOrder{
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "to_address_id",referencedColumnName = "id")
     private Address toAddress;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "from_address_id",referencedColumnName = "id")
     private Address fromAddress;
 }
