@@ -22,5 +22,10 @@ public class Client extends PublicData{
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "client")
     private Set<RequestOrder> requestOrders = new HashSet<>();
 
+    public void addRequestOrder(RequestOrder requestOrder){
+        requestOrders.add(requestOrder);
+        requestOrder.setClient(this);
+    }
+
 
 }

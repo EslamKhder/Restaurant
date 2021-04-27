@@ -3,6 +3,7 @@ package com.spring.restaurant.service;
 import com.spring.restaurant.deo.ClientRepository;
 import com.spring.restaurant.dto.PurchaseRequest;
 import com.spring.restaurant.dto.PurchaseResponse;
+import com.spring.restaurant.model.Item;
 import com.spring.restaurant.model.RequestOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,18 +33,15 @@ public class PurchaseServiceImpl implements PurchaseService{
         requestOrder.setCode(myCode);
 
         /* #3 */
-        requestOrder.setItems(purchases.getItems());
-        purchases.getItems().forEach(item -> item.setRequestOrder(requestOrder));
+        Set<Item> items = purchases.getItems();
+        items.forEach(item -> requestOrder.addItem(item));
 
         /* #4 */
         requestOrder.setFromAddress(purchases.getFromAddress());
         requestOrder.setToAddress(purchases.getToAddress());
 
         /* #5 */
-        Set<RequestOrder> requestOrders = new HashSet<>();
-        requestOrders.add(requestOrder);
-        purchases.getClient().setRequestOrders(requestOrders);
-        requestOrder.setClient(purchases.getClient());
+        purchases.getClient().addRequestOrder(requestOrder);
 
         clientRepository.save(purchases.getClient());
 
