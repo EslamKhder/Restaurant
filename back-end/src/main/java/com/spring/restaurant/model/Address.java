@@ -20,7 +20,8 @@ public class Address extends CategoryOrder{
     @Column(name = "zip_code")
     private String zipCode;
 
-    @OneToOne(mappedBy = "address")
+    @OneToOne
+    @PrimaryKeyJoinColumn
     private RequestOrder requestOrder;
 
 }
