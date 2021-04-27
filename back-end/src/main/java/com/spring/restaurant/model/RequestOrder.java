@@ -34,7 +34,10 @@ public class RequestOrder extends CategoryOrder{
     private Client client;
 
     @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
+    @JoinColumn(name = "to_address_id",referencedColumnName = "id")
+    private Address toAddress;
 
+    @OneToOne
+    @JoinColumn(name = "from_address_id",referencedColumnName = "id")
+    private Address fromAddress;
 }

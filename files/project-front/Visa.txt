@@ -1,0 +1,22 @@
+<div class="col-md-8 myorder data">
+          <label class="myla">Card Type :</label>
+          <div class="input-group mb-3">
+            <select class="form-select">
+              <option value="1">Visa</option>
+              <option value="2">Card</option>
+            </select>
+            <label class="input-group-text myin" for="inputGroupSelect02">Type</label>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" >Card Number</span>
+            <input type="text" class="form-control" aria-describedby="basic-addon3">
+          </div>
+
+          <div class="input-group mb-3">
+            <label class="input-group-text myin" for="inputGroupSelect02">Code</label>
+            <input type="text" class="form-control" aria-describedby="basic-addon3">
+
+          </div>
+
+        </div>
