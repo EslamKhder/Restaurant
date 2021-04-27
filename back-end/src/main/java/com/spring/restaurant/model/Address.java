@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "category")
+@Table(name = "address")
 public class Address extends CategoryOrder{
 
     @Column(name = "country")

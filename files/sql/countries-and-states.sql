@@ -1,5 +1,4 @@
-
-INSERT INTO `country` VALUES 
+INSERT INTO restaurant.country (id,name,code) VALUES 
 (1,'EG','Egypt'),
 (2,'BR','Brazil'),
 (3,'CA','Canada'),
@@ -7,7 +6,7 @@ INSERT INTO `country` VALUES
 (5,'IN','India'),
 (6,'TR','Turkey'),
 (7,'US','United States');
-INSERT INTO `state` VALUES 
+INSERT INTO restaurant.state (id,name,country_id) VALUES 
 (224,'Alexandria',1),
 (225,'Aswan',1),
 (226,'Asyut',1),

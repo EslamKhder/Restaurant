@@ -9,7 +9,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "category")
+@Table(name = "client")
 public class Client extends PublicData{
 
     @Column(name = "email")
