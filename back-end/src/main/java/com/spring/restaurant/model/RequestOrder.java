@@ -2,13 +2,18 @@ package com.spring.restaurant.model;
 
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "request_order")
@@ -28,7 +33,7 @@ public class RequestOrder extends CategoryOrder{
     private int totalQuantity;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "requestOrder")
-    private Set<Item> items = new HashSet<>();
+    private List<Item> items = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "client_id")

@@ -1,0 +1,34 @@
+{
+   "client":{
+      "name":"Eslam Khder",
+      "email":"eslamkhder81@gmail.com",
+      "phoneNumber":"0113903660"
+   },
+   "fromAddress":{
+      "country":"Egypt",
+      "state":"Alex",
+      "zipCode":"eeee"
+   },
+   "toAddress":{
+      "country":"Egypt",
+      "state":"Alex",
+      "zipCode":"eeee"
+   },
+   "requestOrder":{
+      "note": "Good",
+      "totalPrice":100.50,
+      "totalQuantity":6
+   },
+   "items":[
+      {
+         "img":"foods/dissolvedkebab",
+         "quantity":1,
+         "price":16,
+      },
+      {
+         "img":"foods/ricewithmeat",
+         "quantity":1,
+         "price":17,
+      }
+   ]
+}

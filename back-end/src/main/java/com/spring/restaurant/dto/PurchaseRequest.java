@@ -6,15 +6,15 @@ import com.spring.restaurant.model.Item;
 import com.spring.restaurant.model.RequestOrder;
 import lombok.Data;
 
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.List;
 
 @Data
 public class PurchaseRequest {
 
     private Client client;
     private RequestOrder requestOrder;
-    private Set<Item> items = new HashSet<>();
+    private List<Item> items;
     private Address fromAddress;
     private Address toAddress;
 

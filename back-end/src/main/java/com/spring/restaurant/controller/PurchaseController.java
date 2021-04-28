@@ -2,6 +2,7 @@ package com.spring.restaurant.controller;
 
 import com.spring.restaurant.dto.PurchaseRequest;
 import com.spring.restaurant.dto.PurchaseResponse;
+import com.spring.restaurant.model.Item;
 import com.spring.restaurant.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,10 +21,10 @@ public class PurchaseController {
         this.purchaseService = purchaseService;
     }
 
-
     // http://localhost:8080/api/buy/purchase
     @PostMapping("/purchase")
     public PurchaseResponse addRequestOrder(@RequestBody PurchaseRequest purchaseRequest){
+        System.out.println(purchaseRequest.getItems().size());
         return purchaseService.addRequestOrder(purchaseRequest);
     }
 }
