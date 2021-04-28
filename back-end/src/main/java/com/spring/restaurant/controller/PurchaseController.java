@@ -24,7 +24,6 @@ public class PurchaseController {
     // http://localhost:8080/api/buy/purchase
     @PostMapping("/purchase")
     public PurchaseResponse addRequestOrder(@RequestBody PurchaseRequest purchaseRequest){
-        System.out.println(purchaseRequest.getItems().size());
         return purchaseService.addRequestOrder(purchaseRequest);
     }
 }
