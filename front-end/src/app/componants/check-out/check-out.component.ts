@@ -9,6 +9,7 @@ import {RequestOrder} from '../../model/request-order';
 import {PurchaseRequest} from '../../model/purchase-request';
 import {Item} from '../../model/item';
 import {CartOrder} from '../../model/cart-order';
+import {PurchaseServiceService} from '../../service/purchase-service.service';
 
 @Component({
   selector: 'app-check-out',
@@ -26,7 +27,8 @@ export class CheckOutComponent implements OnInit {
 
   constructor(private formChildGroup: FormBuilder,
               private stateCountry: StateCountryServiceService,
-              private card: CartServiceService) { }
+              private card: CartServiceService,
+              private ps: PurchaseServiceService) { }
 
   ngOnInit(): void {
     this.myForm()
@@ -91,6 +93,7 @@ export class CheckOutComponent implements OnInit {
       /* #2 */
       let fromAddress =  this.checkoutParentGroup.controls['fromPerson'].value;
       /* #3 */
+
       let toAddress =  this.checkoutParentGroup.controls['toPerson'].value;
       /* #4 */
       let requestOrder = new RequestOrder();
@@ -102,6 +105,17 @@ export class CheckOutComponent implements OnInit {
       for (let i=0;i<orders.length;i++){
         items[i] = new Item(orders[i]);
       }
+      let purchaseRequest = new PurchaseRequest();
+      purchaseRequest.client = client;
+      purchaseRequest.fromAddress = fromAddress;
+      purchaseRequest.toAddress = toAddress;
+      purchaseRequest.requestOrder = requestOrder;
+      purchaseRequest.items = items;
+      this.ps.getOrder(purchaseRequest).subscribe(
+        data => {
+          alert("OK")
+        }
+      )
     }
   }
 

@@ -17,10 +17,6 @@ public class RequestOrder extends CategoryOrder{
     @Column(name = "code")
     private String code;
 
-    @Column(name = "note")
-    @Lob
-    private String note;
-
     @Column(name = "total_price")
     private int totalPrice;
 
