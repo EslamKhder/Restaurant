@@ -10,6 +10,8 @@ import {PurchaseRequest} from '../../model/purchase-request';
 import {Item} from '../../model/item';
 import {CartOrder} from '../../model/cart-order';
 import {PurchaseServiceService} from '../../service/purchase-service.service';
+import {Address} from '../../model/address';
+import {Client} from '../../model/client';
 
 @Component({
   selector: 'app-check-out',
@@ -89,12 +91,18 @@ export class CheckOutComponent implements OnInit {
       this.checkoutParentGroup.markAllAsTouched()
     } else {
       /* #1 */
-      let client = this.checkoutParentGroup.controls['data'].value;
-      /* #2 */
-      let fromAddress =  this.checkoutParentGroup.controls['fromPerson'].value;
-      /* #3 */
+      let client: Client = new Client();
+      client.name = this.checkoutParentGroup.controls['data'].value.fullName;
+      client.email = this.checkoutParentGroup.controls['data'].value.gmail;
+      client.phoneNumber = this.checkoutParentGroup.controls['data'].value.phone;
 
-      let toAddress =  this.checkoutParentGroup.controls['toPerson'].value;
+      /* #2 */
+      let fromAddress: Address =  this.checkoutParentGroup.controls['fromPerson'].value
+      fromAddress.state = fromAddress.state['name']
+      /* #3 */
+      let toAddress: Address =  this.checkoutParentGroup.controls['toPerson'].value;
+      toAddress.state = toAddress.state['name']
+
       /* #4 */
       let requestOrder = new RequestOrder();
       requestOrder.totalPrice = this.totalPrice;
@@ -111,11 +119,20 @@ export class CheckOutComponent implements OnInit {
       purchaseRequest.toAddress = toAddress;
       purchaseRequest.requestOrder = requestOrder;
       purchaseRequest.items = items;
-      this.ps.getOrder(purchaseRequest).subscribe(
-        data => {
-          alert("OK")
-        }
-      )
+      console.log("--------------------------")
+      console.log(purchaseRequest.client)
+      console.log(purchaseRequest.fromAddress)
+      console.log(purchaseRequest.toAddress)
+      console.log(purchaseRequest.requestOrder)
+      console.log(purchaseRequest.items)
+      this.ps.getOrder(purchaseRequest).subscribe({
+       next: response=> {
+         alert("OK")
+       },
+       error: error =>{
+         console.log("Error is : " + error.message)
+       }
+      })
     }
   }
 
