@@ -2,6 +2,7 @@ package com.spring.restaurant.config;
 
 import com.spring.restaurant.model.Category;
 import com.spring.restaurant.model.Order;
+import com.spring.restaurant.model.User;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -16,6 +17,7 @@ public class DataRestApiConfig implements RepositoryRestConfigurer {
 
         disableHttpMethod(Category.class,config,preventMethod);
         disableHttpMethod(Order.class,config,preventMethod);
+        disableHttpMethod(User.class,config,preventMethod);
         /*config.getExposureConfiguration()
               .forDomainType(Category.class)
               .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(preventMethod)))
