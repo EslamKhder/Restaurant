@@ -22,7 +22,7 @@ public class JwtAuthenticationFilter {
     public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }
-    public String generateToken(Authentication authResult) {
+    private String generateToken(Authentication authResult) {
 
         // Grab principal
         UserPrincipal principal = (UserPrincipal) authResult.getPrincipal();
