@@ -2,6 +2,7 @@ package com.spring.restaurant.config.springsecurty.jwt;
 
 import com.auth0.jwt.JWT;
 import com.spring.restaurant.deo.UserRepository;
+import com.spring.restaurant.dto.UserPrincipal;
 import com.spring.restaurant.model.User;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,8 +17,8 @@ import java.io.IOException;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
-public class JwtAuthorizationFilter  { //extends BasicAuthenticationFilter
-/*
+public class JwtAuthorizationFilter extends BasicAuthenticationFilter{
+
     private UserRepository userRepository;
 
     public JwtAuthorizationFilter(AuthenticationManager authenticationManager, UserRepository userRepository) {
@@ -68,6 +69,4 @@ public class JwtAuthorizationFilter  { //extends BasicAuthenticationFilter
         }
         return null;
     }
-
- */
 }
