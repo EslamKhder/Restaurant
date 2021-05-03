@@ -16,4 +16,15 @@ public class DBController {
     public String getData(){
         return "My Data";
     }
+
+    @GetMapping("/adminuser")
+    public String adminUser(){
+        return "I am User || Admin";
+    }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "I am Admin";
+    }
+
 }
