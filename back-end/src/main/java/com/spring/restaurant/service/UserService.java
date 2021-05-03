@@ -1,6 +1,8 @@
 package com.spring.restaurant.service;
 
 import com.spring.restaurant.deo.UserRepository;
+import com.spring.restaurant.dto.UserPrincipal;
+import com.spring.restaurant.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +21,9 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
-        return null;
+        User user = userRepository.findByEmail(email);
+        UserPrincipal userPrincipal = new UserPrincipal(user);
+        return userPrincipal;
     }
+
 }
