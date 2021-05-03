@@ -35,6 +35,8 @@ public class JwtAuthenticationFilter {
                 .sign(HMAC512(JwtProperties.SECRET.getBytes()));
         return token;
     }
+
+
     public String login(JwtLogin jwtLogin) {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtLogin.getEmail(),
                 jwtLogin.getPassword()));
