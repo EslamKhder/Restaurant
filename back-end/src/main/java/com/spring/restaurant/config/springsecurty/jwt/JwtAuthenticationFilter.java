@@ -1,6 +1,7 @@
 package com.spring.restaurant.config.springsecurty.jwt;
 
 import com.auth0.jwt.JWT;
+import com.spring.restaurant.dto.JwtLogin;
 import com.spring.restaurant.dto.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -35,7 +36,7 @@ public class JwtAuthenticationFilter {
         return token;
     }
     public String login(JwtLogin jwtLogin) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtLogin.getUsername(),
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtLogin.getEmail(),
                 jwtLogin.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String token = generateToken(authenticate);
