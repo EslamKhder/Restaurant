@@ -33,13 +33,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                //.anyRequest().permitAll()
-                .antMatchers("/me/admin").hasRole("admin")
-                .anyRequest().authenticated()
+                .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                .anyRequest().permitAll()
                 .and()
-                .formLogin()
-                .permitAll();
-                //.httpBasic();
+                .httpBasic();
     }
     @Bean
     DaoAuthenticationProvider authenticationProvider(){
