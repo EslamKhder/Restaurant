@@ -1,7 +1,8 @@
-package com.spring.restaurant.config.springsecurty.jwt;
+package com.spring.restaurant.service;
 
 import com.auth0.jwt.JWT;
 import com.spring.restaurant.dto.JwtLogin;
+import com.spring.restaurant.dto.JwtProperties;
 import com.spring.restaurant.dto.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,11 +16,11 @@ import java.util.Date;
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
 @Service
-public class JwtAuthenticationFilter {
+public class TokenService {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public TokenService(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }
     private String generateToken(Authentication authResult) {
@@ -35,7 +36,6 @@ public class JwtAuthenticationFilter {
                 .sign(HMAC512(JwtProperties.SECRET.getBytes()));
         return token;
     }
-
 
     public String login(JwtLogin jwtLogin) {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtLogin.getEmail(),

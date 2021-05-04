@@ -1,4 +1,4 @@
-package com.spring.restaurant.config.springsecurty.jwt;
+package com.spring.restaurant.dto;
 
 public class JwtProperties {
     public static final String SECRET = "MY-ESLAM.Khder";
