@@ -36,7 +36,6 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter{
             chain.doFilter(request, response);
             return;
         }
-/////////////////////////
         // If header is present, try grab user principal from database and perform authorization
         Authentication authentication = getUsernamePasswordAuthentication(request);
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -62,7 +61,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter{
             if (email != null) {
                 User user = userRepository.findByEmail(email);
                 UserPrincipal principal = new UserPrincipal(user);
-                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(email, principal.getAuthorities());
+                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(email,null, principal.getAuthorities());
                 return auth;
             }
             return null;
