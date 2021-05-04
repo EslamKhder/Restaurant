@@ -35,11 +35,10 @@ export class LoginComponent implements OnInit {
       this.checkoutParentGroup.controls['user'].value.password
     ).subscribe({
       next: response =>{
-        this.router.navigateByUrl("/orders"),
-          alert("ok")
+        this.router.navigateByUrl("/orders")
       },
       error: er=> {
-        console.log(er)
+        alert("Invalid Email or Password")
       }
     })
   }
