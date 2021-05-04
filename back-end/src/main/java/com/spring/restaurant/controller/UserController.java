@@ -20,7 +20,7 @@ public class UserController {
         this.tokenService = tokenService;
     }
 
-    // http://localhost:8080/login
+    // http://localhost:8080/signin
     @PostMapping("/signin")
     public String logIn(@RequestBody JwtLogin jwtLogin){
         return tokenService.login(jwtLogin);
