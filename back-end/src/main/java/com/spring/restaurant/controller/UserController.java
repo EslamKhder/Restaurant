@@ -3,12 +3,11 @@ package com.spring.restaurant.controller;
 import com.spring.restaurant.service.TokenService;
 import com.spring.restaurant.dto.JwtLogin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 // http://localhost:8080
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping
 // http://localhost:8080/
 public class UserController {
