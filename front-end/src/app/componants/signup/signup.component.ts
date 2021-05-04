@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {AuthenticationServiceService} from '../../service/security/authentication-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +12,9 @@ export class SignupComponent implements OnInit {
 
   checkoutParentGroup: FormGroup;
 
-  constructor(private formChildGroup: FormBuilder) { }
+  constructor(private formChildGroup: FormBuilder,
+              private auth :AuthenticationServiceService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.myFormLogin()
@@ -25,9 +29,17 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  login() {
-    alert(this.checkoutParentGroup.controls['user'].value.email)
-    alert(this.checkoutParentGroup.controls['user'].value.password)
+  done() {
+    this.auth.createUser(
+      this.checkoutParentGroup.controls['user'].value.email,
+      this.checkoutParentGroup.controls['user'].value.password
+    ).subscribe({
+      next: response => {
+        this.router.navigateByUrl("/login")
+      }
+    })
+
+
   }
 
 }
