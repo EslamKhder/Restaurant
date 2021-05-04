@@ -1,5 +1,6 @@
 package com.spring.restaurant.controller;
 
+import com.spring.restaurant.dto.LoginResponse;
 import com.spring.restaurant.service.TokenService;
 import com.spring.restaurant.dto.JwtLogin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class UserController {
 
     // http://localhost:8080/signin
     @PostMapping("/signin")
-    public String logIn(@RequestBody JwtLogin jwtLogin){
+    public LoginResponse logIn(@RequestBody JwtLogin jwtLogin){
         return tokenService.login(jwtLogin);
     }
 }
