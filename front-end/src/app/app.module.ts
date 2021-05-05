@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { OrderItemsComponent } from './componants/order-items/order-items.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CategoryItemsComponent } from './componants/category-items/category-items.component';
 import {RouterModule, Routes} from '@angular/router';
 import { DropdownMenuComponent } from './componants/dropdown-menu/dropdown-menu.component';
