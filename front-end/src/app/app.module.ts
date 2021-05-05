@@ -15,6 +15,7 @@ import { CheckOutComponent } from './componants/check-out/check-out.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './componants/login/login.component';
 import { SignupComponent } from './componants/signup/signup.component';
+import {HttpIntercepterBaseAuthService} from './service/security/http-intercepter-base-auth.service';
 
 // http://localhost:4200/
 const routes: Routes = [
@@ -81,6 +82,7 @@ const routes: Routes = [
     //NgModule
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS,useClass: HttpIntercepterBaseAuthService,multi: true}
   ],
   bootstrap: [AppComponent]
 })
