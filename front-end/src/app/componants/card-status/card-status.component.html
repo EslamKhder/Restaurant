@@ -1,4 +1,4 @@
-<a routerLink="/purchases">
+<a *ngIf="isUserLogin()" routerLink="/purchases">
   <div class="statusCard">
     <span class="span">{{orderPrice | currency: 'USD'}}
       <i class="fas fa-coins"></i> | {{orderSize}}</span>

@@ -1,13 +1,18 @@
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-  <a routerLinkActive="menu-active" *ngFor="let temp of categories" class="dropdown-item" routerLink="category/{{temp.id}}">
-    <i class="{{temp.logo}}"></i> {{temp.name}}
+<li *ngIf="isAuth()" class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Categories
   </a>
-  <!--
-  <a class="dropdown-item" href="#">Action</a>
-  <a class="dropdown-item" href="#">Another action</a>
-  <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="#">Something else here</a>
-  -->
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-</div>
+    <a routerLinkActive="menu-active" *ngFor="let temp of categories" class="dropdown-item" routerLink="category/{{temp.id}}">
+      <i class="{{temp.logo}}"></i> {{temp.name}}
+    </a>
+    <!--
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Something else here</a>
+    -->
+
+  </div>
+</li>

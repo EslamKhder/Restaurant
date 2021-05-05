@@ -30,4 +30,5 @@ export class SearchOrderComponent implements OnInit {
     this.auth.logOut()
     this.router.navigateByUrl("/login")
   }
+
 }
