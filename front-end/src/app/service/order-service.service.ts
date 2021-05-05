@@ -16,9 +16,8 @@ export class OrderServiceService {
 
   getOrders(page,size): Observable<Order[]> {
     let head = new HttpHeaders({
-      Authorization: sessionStorage.getItem('token').toString()
+      Authorization: sessionStorage.getItem('token')
     })
-    alert(sessionStorage.getItem('token'))
     return this.http.get<Order[]>(`${this.baseUrl}allOrders?page=${page}&size=${size}`,{headers: head}).pipe(
       map(
         response => response

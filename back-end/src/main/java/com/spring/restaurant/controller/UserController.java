@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-// http://localhost:8080
+// http://localhost:8080/
 @RestController
 @CrossOrigin("http://localhost:4200")
 @RequestMapping
