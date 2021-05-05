@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Order} from '../model/order';
 import {map} from 'rxjs/operators';
@@ -14,9 +14,12 @@ export class OrderServiceService {
   //private url = 'http://localhost:8080/api/category?id=';
   constructor(private http: HttpClient) { }
 
-
   getOrders(page,size): Observable<Order[]> {
-    return this.http.get<Order[]>(`${this.baseUrl}allOrders?page=${page}&size=${size}`).pipe(
+    let head = new HttpHeaders({
+      Authorization: sessionStorage.getItem('token').toString()
+    })
+    alert(sessionStorage.getItem('token'))
+    return this.http.get<Order[]>(`${this.baseUrl}allOrders?page=${page}&size=${size}`,{headers: head}).pipe(
       map(
         response => response
       )
