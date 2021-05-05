@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if(this.checkoutParentGroup.invalid){
+      this.checkoutParentGroup.markAllAsTouched()
+      return;
+    }
     this.auth.executeAuthentication(
       this.checkoutParentGroup.controls['user'].value.email,
       this.checkoutParentGroup.controls['user'].value.password
