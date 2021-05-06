@@ -16,36 +16,38 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './componants/login/login.component';
 import { SignupComponent } from './componants/signup/signup.component';
 import {HttpIntercepterBaseAuthService} from './service/security/http-intercepter-base-auth.service';
+import {RouteActivteService} from './service/activeted/route-activte.service';
+import {LoginActiveService} from './service/activeted/login-active.service';
 
 // http://localhost:4200/
 const routes: Routes = [
 
   // http://localhost:4200/login
-  {path: 'login', component:LoginComponent},
+  {path: 'login', component:LoginComponent,canActivate: [LoginActiveService]},
 
   // http://localhost:4200/signup
-  {path: 'signup', component:SignupComponent},
+  {path: 'signup', component:SignupComponent,canActivate: [LoginActiveService]},
 
   // http://localhost:4200/checkout
-  {path: 'checkout', component:CheckOutComponent},
+  {path: 'checkout', component:CheckOutComponent,canActivate: [RouteActivteService]},
 
   // http://localhost:4200/purchases
-  {path: 'purchases', component:PurchasesComponent},
+  {path: 'purchases', component:PurchasesComponent,canActivate: [RouteActivteService]},
 
   // http://localhost:4200/order/id
-  {path: 'order/:id', component:OrderDetailsComponent},
+  {path: 'order/:id', component:OrderDetailsComponent,canActivate: [RouteActivteService]},
 
   // http://localhost:4200/category/id
-  {path: 'category/:id', component:OrderItemsComponent},
+  {path: 'category/:id', component:OrderItemsComponent,canActivate: [RouteActivteService]},
 
   // http://localhost:4200/category
-  {path: 'category', component:OrderItemsComponent},
+  {path: 'category', component:OrderItemsComponent,canActivate: [RouteActivteService]},
 
   // http://localhost:4200/orders/key
-  {path: 'orders/:key', component:OrderItemsComponent},
+  {path: 'orders/:key', component:OrderItemsComponent,canActivate: [RouteActivteService]},
 
   // http://localhost:4200/orders
-  {path: 'orders', component:OrderItemsComponent},
+  {path: 'orders', component:OrderItemsComponent,canActivate: [RouteActivteService]},
 
   // http://localhost:4200/
   {path: '', redirectTo: '/orders',pathMatch: 'full'},
