@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class AuthenticationServiceService {
 
   private baseUrl = 'http://localhost:8080/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private cook: CookieService) { }
 
   executeAuthentication(email,password): Observable<any>{
     return this.http.post<any>(`${this.baseUrl}signin`,{email,password}).pipe(
@@ -18,6 +20,8 @@ export class AuthenticationServiceService {
         response => {
           sessionStorage.setItem("email",response.email)
           sessionStorage.setItem("token",`Bearer ${response.token}`)
+          this.cook.set("email",response.email)
+          this.cook.set("token",`Bearer ${response.token}`)
           return response;
         }
       )
@@ -38,7 +42,7 @@ export class AuthenticationServiceService {
     return sessionStorage.getItem("email");
   }
   getToken(){
-    if(this.getAuthentication()){ //
+    if(this.getAuthentication()){
       return sessionStorage.getItem('token')
     }
   }
@@ -49,5 +53,7 @@ export class AuthenticationServiceService {
   logOut(){
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('token');
+    this.cook.delete('email');
+    this.cook.delete('token');
   }
 }

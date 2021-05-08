@@ -18,6 +18,7 @@ import { SignupComponent } from './componants/signup/signup.component';
 import {HttpIntercepterBaseAuthService} from './service/security/http-intercepter-base-auth.service';
 import {RouteActivteService} from './service/activeted/route-activte.service';
 import {LoginActiveService} from './service/activeted/login-active.service';
+import {CookieService} from 'ngx-cookie-service';
 
 // http://localhost:4200/
 const routes: Routes = [
@@ -84,7 +85,8 @@ const routes: Routes = [
     //NgModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS,useClass: HttpIntercepterBaseAuthService,multi: true}
+    {provide: HTTP_INTERCEPTORS,useClass: HttpIntercepterBaseAuthService,multi: true},
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
