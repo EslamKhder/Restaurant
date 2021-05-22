@@ -1,17 +1,15 @@
 package com.spring.restaurant.controller;
 
-import com.spring.restaurant.dto.AccountResponse;
-import com.spring.restaurant.dto.LoginResponse;
-import com.spring.restaurant.dto.Mail;
+import com.spring.restaurant.dto.*;
 import com.spring.restaurant.model.Code;
 import com.spring.restaurant.model.User;
 import com.spring.restaurant.service.AuthoritiesService;
 import com.spring.restaurant.service.EmailService;
 import com.spring.restaurant.service.TokenService;
-import com.spring.restaurant.dto.JwtLogin;
 import com.spring.restaurant.service.UserService;
 import com.spring.restaurant.util.UserCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,12 +28,13 @@ public class UserController {
     private UserCode userCode = new UserCode();
 
     @Autowired
-    public UserController(TokenService tokenService, UserService userService, AuthoritiesService authoritiesService, PasswordEncoder passwordEncoder,EmailService emailService) {
+    public UserController(TokenService tokenService, UserService userService, AuthoritiesService authoritiesService, PasswordEncoder passwordEncoder, EmailService emailService,PasswordEncoder encoder) {
         this.tokenService = tokenService;
         this.userService = userService;
         this.authoritiesService = authoritiesService;
         this.passwordEncoder = passwordEncoder;
         this.emailService = emailService;
+        this.userCode = userCode;
     }
 
     // http://localhost:8080/signin
@@ -68,5 +67,11 @@ public class UserController {
             accountResponse.setResult(1);
         }
         return accountResponse;
+    }
+
+    // http://localhost:8080/active
+    @PostMapping("/active")
+    public UserActive getActiveUser(@RequestBody JwtLogin jwtLogin){
+        return new UserActive(userService.getUserActive(jwtLogin));
     }
 }

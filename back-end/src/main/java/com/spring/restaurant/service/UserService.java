@@ -37,4 +37,9 @@ public class UserService implements UserDetailsService {
     public boolean ifEmailExist(String email){
         return userRepository.existsByEmail(email);
     }
+
+    @Transactional
+    public int getUserActive(JwtLogin jwtLogin){
+        return userRepository.getActive(jwtLogin.getEmail(),jwtLogin.getPassword());
+    }
 }
