@@ -19,7 +19,7 @@ import java.util.UUID;
 public class PurchaseServiceImpl implements PurchaseService{
 
     private ClientRepository clientRepository;
-    private Code code;
+    private Code code = new Code();
 
     @Autowired
     public PurchaseServiceImpl(ClientRepository clientRepository) {
