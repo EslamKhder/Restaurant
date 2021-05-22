@@ -11,7 +11,8 @@ import {CookieService} from 'ngx-cookie-service';
 export class AppComponent {
   title = 'front-end';
 
-  constructor(private cook: CookieService) { }
+  constructor(private cook: CookieService,
+              private auth: AuthenticationServiceService) { }
 
   ngOnInit(): void {
     if (this.isCookie()){
@@ -25,6 +26,10 @@ export class AppComponent {
       return false;
     }
     return true;
+  }
+
+  isLogin(){
+    return this.auth.isLogin()
   }
 
 }

@@ -17,7 +17,7 @@
     </div>
 
     <nav class="nav-menu">
-      <app-category-items></app-category-items>
+      <app-category-items *ngIf="isLogin()"></app-category-items>
     </nav><!-- .nav-menu -->
     <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
@@ -34,7 +34,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-          <app-dropdown-menu></app-dropdown-menu>
+          <app-dropdown-menu *ngIf="isLogin()"></app-dropdown-menu>
 
       </ul>
       <app-search-order></app-search-order>
