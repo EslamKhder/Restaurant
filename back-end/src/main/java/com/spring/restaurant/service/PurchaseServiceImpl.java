@@ -5,6 +5,7 @@ import com.spring.restaurant.dto.PurchaseRequest;
 import com.spring.restaurant.dto.PurchaseResponse;
 import com.spring.restaurant.model.Item;
 import com.spring.restaurant.model.RequestOrder;
+import com.spring.restaurant.util.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +19,7 @@ import java.util.UUID;
 public class PurchaseServiceImpl implements PurchaseService{
 
     private ClientRepository clientRepository;
+    private Code code;
 
     @Autowired
     public PurchaseServiceImpl(ClientRepository clientRepository) {
@@ -30,7 +32,7 @@ public class PurchaseServiceImpl implements PurchaseService{
         /* #1 */
         RequestOrder requestOrder = purchases.getRequestOrder();
         /* #2 */
-        String myCode = getCode();
+        String myCode = code.getCode();
         requestOrder.setCode(myCode);
 
         /* #3 */
@@ -49,7 +51,5 @@ public class PurchaseServiceImpl implements PurchaseService{
         return new PurchaseResponse(purchases.getClient().getName(),myCode);
     }
 
-    private String getCode() {
-        return UUID.randomUUID().toString();
-    }
+
 }
