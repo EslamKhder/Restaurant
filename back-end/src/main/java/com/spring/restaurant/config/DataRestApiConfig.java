@@ -20,16 +20,7 @@ public class DataRestApiConfig implements RepositoryRestConfigurer {
         disableHttpMethod(Order.class,config,preventMethod);
         disableHttpMethod(User.class,config,preventMethod);
         disableHttpMethod(Authorities.class,config,preventMethod);
-        /*config.getExposureConfiguration()
-              .forDomainType(Category.class)
-              .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(preventMethod)))
-              .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(preventMethod));
 
-        config.getExposureConfiguration()
-                .forDomainType(Order.class)
-                .withItemExposure(((metdata, httpMethods) -> httpMethods.disable(preventMethod)))
-                .withCollectionExposure((metdata, httpMethods) -> httpMethods.disable(preventMethod));
-                */
     }
     private void disableHttpMethod(Class theClass, RepositoryRestConfiguration config,HttpMethod[] unsupportedMethod){
         config.getExposureConfiguration()

@@ -12,8 +12,7 @@ import {Observable} from 'rxjs';
 export class CategoryItemsComponent implements OnInit {
 
   categories: Category[] = [];
-  constructor(private categoryService: CategoryServiceService,
-              private auth: AuthenticationServiceService) { }
+  constructor(private categoryService: CategoryServiceService) { }
 
   ngOnInit(): void {
     this.getAllCategories();
@@ -25,9 +24,6 @@ export class CategoryItemsComponent implements OnInit {
         this.categories = data
       }
     )
-  }
-  isLogin(){
-    return this.auth.isLogin()
   }
 
 }
