@@ -2,8 +2,10 @@ package com.spring.restaurant.controller;
 
 import com.spring.restaurant.dto.AccountResponse;
 import com.spring.restaurant.dto.LoginResponse;
+import com.spring.restaurant.dto.Mail;
 import com.spring.restaurant.model.User;
 import com.spring.restaurant.service.AuthoritiesService;
+import com.spring.restaurant.service.EmailService;
 import com.spring.restaurant.service.TokenService;
 import com.spring.restaurant.dto.JwtLogin;
 import com.spring.restaurant.service.UserService;
@@ -22,13 +24,15 @@ public class UserController {
     private UserService userService;
     private AuthoritiesService authoritiesService;
     private PasswordEncoder passwordEncoder;
+    private EmailService emailService;
 
     @Autowired
-    public UserController(TokenService tokenService, UserService userService, AuthoritiesService authoritiesService, PasswordEncoder passwordEncoder) {
+    public UserController(TokenService tokenService, UserService userService, AuthoritiesService authoritiesService, PasswordEncoder passwordEncoder,EmailService emailService) {
         this.tokenService = tokenService;
         this.userService = userService;
         this.authoritiesService = authoritiesService;
         this.passwordEncoder = passwordEncoder;
+        this.emailService = emailService;
     }
 
     // http://localhost:8080/signin
@@ -49,9 +53,10 @@ public class UserController {
             User user = new User();
             user.setEmail(jwtLogin.getEmail());
             user.setPassword(passwordEncoder.encode(jwtLogin.getPassword()));
-            user.setActive(1);
+            user.setActive(0);
             user.getAuthorities().add(authoritiesService.getAuthorities().get(0));
             userService.addUser(user);
+            emailService.sendCodeByMail(new Mail(jwtLogin.getEmail()));
             accountResponse.setResult(1);
         }
         return accountResponse;
