@@ -12,7 +12,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     public boolean existsByEmail(String email);
 
-    @Query("select u.active from User u where u.email=?1 and u.password =?2")
-    public int getActive(String email,String password);
+    @Query("select u.active from User u where u.email=?1")
+    public int getActive(String email);
 
+    @Query("select u.password from User u where u.email=?1")
+    public String getPasswordByEmail(String email);
 }

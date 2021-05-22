@@ -72,6 +72,15 @@ public class UserController {
     // http://localhost:8080/active
     @PostMapping("/active")
     public UserActive getActiveUser(@RequestBody JwtLogin jwtLogin){
-        return new UserActive(userService.getUserActive(jwtLogin));
+        String enPassword = userService.getPasswordByEmail(jwtLogin.getEmail());  // from DB
+        boolean result = passwordEncoder.matches(jwtLogin.getPassword(),enPassword); // Sure
+        UserActive userActive = new UserActive();
+        if (result){
+            int act = userService.getUserActive(jwtLogin.getEmail());
+            userActive.setActive(act);
+        } else {
+            userActive.setActive(-1);
+        }
+        return userActive;
     }
 }

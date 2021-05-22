@@ -39,7 +39,11 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public int getUserActive(JwtLogin jwtLogin){
-        return userRepository.getActive(jwtLogin.getEmail(),jwtLogin.getPassword());
+    public int getUserActive(String email){
+        return userRepository.getActive(email);
+    }
+
+    public String getPasswordByEmail(String email){
+        return userRepository.getPasswordByEmail(email);
     }
 }
