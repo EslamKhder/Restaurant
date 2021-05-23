@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
             }
           })
         } else if(ac === 0){
+          sessionStorage.setItem("emailActive",this.checkoutParentGroup.controls['user'].value.email)
           this.router.navigateByUrl("/active")
         } else {
           alert("Invalid Email or Password")
