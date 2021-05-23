@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SpaceValidator} from '../../model/space-validator';
+import {AuthenticationServiceService} from '../../service/security/authentication-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-code-activation',
@@ -14,7 +16,9 @@ export class CodeActivationComponent implements OnInit {
 
   email: string = "";
   checkoutParentGroup: FormGroup;
-  constructor(private formChildGroup: FormBuilder) { }
+  constructor(private formChildGroup: FormBuilder,
+              private auth: AuthenticationServiceService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.email = sessionStorage.getItem("emailActive");
@@ -36,10 +40,24 @@ export class CodeActivationComponent implements OnInit {
   }
 
   done() {
+    console.log(this.checkoutParentGroup.controls['user'].value.code)
     if (this.checkoutParentGroup.invalid) {
       this.checkoutParentGroup.markAllAsTouched()
       return
     }
+    this.auth.activeAccount(
+      this.email,
+      this.checkoutParentGroup.controls['user'].value.code
+    ).subscribe({
+      next: response => {
+        if (response.result == 1){
+          this.router.navigateByUrl("/login")
+        } else {
+          alert("Invalid Code");
+        }
+      }
+    })
+
   }
 
 }
