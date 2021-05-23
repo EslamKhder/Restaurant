@@ -24,7 +24,6 @@ public class UserController {
     private AuthoritiesService authoritiesService;
     private PasswordEncoder passwordEncoder;
     private EmailService emailService;
-    private UserCode userCode = new UserCode();
 
     @Autowired
     public UserController(TokenService tokenService, UserService userService, AuthoritiesService authoritiesService, PasswordEncoder passwordEncoder, EmailService emailService,PasswordEncoder encoder) {
@@ -33,7 +32,6 @@ public class UserController {
         this.authoritiesService = authoritiesService;
         this.passwordEncoder = passwordEncoder;
         this.emailService = emailService;
-        this.userCode = userCode;
     }
 
     // http://localhost:8080/signin
@@ -51,7 +49,7 @@ public class UserController {
         if(result){
             accountResponse.setResult(0);
         } else {
-            String myCode = userCode.getCode();
+            String myCode = UserCode.getCode();
             User user = new User();
             user.setEmail(jwtLogin.getEmail());
             user.setPassword(passwordEncoder.encode(jwtLogin.getPassword()));
