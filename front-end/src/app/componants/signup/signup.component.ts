@@ -50,7 +50,8 @@ export class SignupComponent implements OnInit {
     ).subscribe({
       next: response => {
         if (response.result == 1){
-          this.router.navigateByUrl("/login")
+          sessionStorage.setItem("emailActive",this.checkoutParentGroup.controls['user'].value.email),
+          this.router.navigateByUrl("/active")
         } else {
           alert("Email is Exist")
         }

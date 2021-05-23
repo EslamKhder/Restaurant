@@ -1,3 +1,12 @@
 .mycard {
-  height: 209px !important;
+  height: 300px !important;
+}
+
+.must {
+  font-size: 25px !important;
+}
+.email-act
+{
+  font-size: 18px !important;
+  color: azure;
 }

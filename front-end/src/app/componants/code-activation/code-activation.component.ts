@@ -12,10 +12,13 @@ import {SpaceValidator} from '../../model/space-validator';
 })
 export class CodeActivationComponent implements OnInit {
 
+  email: string = "";
   checkoutParentGroup: FormGroup;
   constructor(private formChildGroup: FormBuilder) { }
 
   ngOnInit(): void {
+    this.email = sessionStorage.getItem("emailActive");
+    this.myFormLogin()
   }
 
   myFormLogin(){
