@@ -51,6 +51,7 @@ export class CodeActivationComponent implements OnInit {
     ).subscribe({
       next: response => {
         if (response.result == 1){
+          sessionStorage.removeItem("emailActive")
           this.router.navigateByUrl("/login")
         } else {
           alert("Invalid Code");
