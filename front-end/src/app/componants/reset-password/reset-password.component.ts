@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SpaceValidator} from '../../model/space-validator';
+import {AuthenticationServiceService} from '../../service/security/authentication-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -14,8 +16,10 @@ export class ResetPasswordComponent implements OnInit {
 
   checkoutParentGroup: FormGroup;
   checkoutParentGroupReset: FormGroup;
-  enableForm: boolean = false;
-  constructor(private formChildGroup: FormBuilder) { }
+  enableForm: boolean = true;
+  constructor(private formChildGroup: FormBuilder,
+              private auth: AuthenticationServiceService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.myFormLogin()
@@ -64,6 +68,18 @@ export class ResetPasswordComponent implements OnInit {
       this.checkoutParentGroup.markAllAsTouched()
       return
     }
+    this.auth.checkEmail(
+      this.checkoutParentGroup.controls['user'].value.email
+    ).subscribe({
+      next: response =>{
+        if(response.result == 1){
+          this.enableForm = false
+        } else {
+          alert("Email doesn't Exist")
+        }
+      }
+    })
+
   }
 
   resetNewPassword() {
@@ -71,5 +87,19 @@ export class ResetPasswordComponent implements OnInit {
       this.checkoutParentGroup.markAllAsTouched()
       return
     }
+    this.auth.resetPassword(
+      this.checkoutParentGroup.controls['user'].value.email,
+      this.checkoutParentGroupReset.controls['newUser'].value.code,
+      this.checkoutParentGroupReset.controls['newUser'].value.password
+    ).subscribe({
+      next: response =>{
+        if(response.result == 1){
+          alert("Success Edit Password")
+          this.router.navigateByUrl("/login")
+        } else {
+          alert("Invalid Code")
+        }
+      }
+    })
   }
 }
