@@ -4,3 +4,17 @@
   left: 360px;
   width: 200px;
 }
+.social
+{
+  position: absolute;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+  margin-top: 100px;
+}
+
+.social i
+{
+  font-size: 100px;
+  padding: 52px;
+  cursor: pointer;
+}
