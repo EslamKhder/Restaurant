@@ -74,6 +74,14 @@ public class UserController {
         UserActive userActive = new UserActive();
         if (result){
             int act = userService.getUserActive(jwtLogin.getEmail());
+            if(act == 0){
+                String code = UserCode.getCode();
+                Mail mail = new Mail(jwtLogin.getEmail(),code);
+                emailService.sendCodeByMail(mail);
+                User user = userService.getUserByMail(jwtLogin.getEmail());
+                user.getCode().setCode(code);
+                userService.editUser(user);
+            }
             userActive.setActive(act);
         } else {
             userActive.setActive(-1);
