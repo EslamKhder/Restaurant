@@ -113,4 +113,23 @@ public class UserController {
         }
         return accountResponse;
     }
+
+    // http://localhost:8080/resetPassword
+    @PostMapping("/resetPassword")
+    public AccountResponse resetPassword(@RequestBody NewPassword newPassword){
+        User user = this.userService.getUserByMail(newPassword.getEmail());
+        AccountResponse accountResponse = new AccountResponse();
+        if(user != null){
+            if(user.getCode().getCode().equals(newPassword.getCode())){
+                user.setPassword(passwordEncoder.encode(newPassword.getPassword()));
+                userService.addUser(user);
+                accountResponse.setResult(1);
+            } else {
+                accountResponse.setResult(0);
+            }
+        } else {
+            accountResponse.setResult(0);
+        }
+        return accountResponse;
+    }
 }
