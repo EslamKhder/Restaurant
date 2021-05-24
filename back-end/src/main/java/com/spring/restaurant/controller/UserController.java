@@ -95,4 +95,19 @@ public class UserController {
         }
         return accountResponse;
     }
+
+    // http://localhost:8080/checkEmail
+    @PostMapping("/checkEmail")
+    public AccountResponse resetPasswordEmail(@RequestBody ResetPassword resetPassword){
+        boolean result = this.userService.ifEmailExist(resetPassword.getEmail());
+        AccountResponse accountResponse = new AccountResponse();
+        if(result){
+            Mail mail = new Mail(resetPassword.getEmail(),UserCode.getCode());
+            emailService.sendCodeByMail(mail);
+            accountResponse.setResult(1);
+        } else {
+            accountResponse.setResult(0);
+        }
+        return accountResponse;
+    }
 }
