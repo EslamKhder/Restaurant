@@ -57,6 +57,26 @@ export class AuthenticationServiceService {
     )
   }
 
+  checkEmail(email):Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}checkEmail`,{email}).pipe(
+      map(
+        response => {
+          return response;
+        }
+      )
+    )
+  }
+
+  resetPassword(email,code,password):Observable<any>{
+    return this.http.post<any>(`${this.baseUrl}resetPassword`,{email,code,password}).pipe(
+      map(
+        response => {
+          return response;
+        }
+      )
+    )
+  }
+
   getAuthentication(){
     return sessionStorage.getItem("email");
   }
