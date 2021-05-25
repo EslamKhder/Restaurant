@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationServiceService} from '../../service/security/authentication-service.service';
 import {Router} from '@angular/router';
 import {SpaceValidator} from '../../model/space-validator';
+import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthService} from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private formChildGroup: FormBuilder,
               private auth :AuthenticationServiceService,
-              private router: Router) { }
+              private router: Router,
+              private authService: SocialAuthService) { }
 
   ngOnInit(): void {
     this.myFormLogin()
@@ -67,17 +69,6 @@ export class LoginComponent implements OnInit {
         }
       }
     })
-    /*this.auth.executeAuthentication(
-      this.checkoutParentGroup.controls['user'].value.email,
-      this.checkoutParentGroup.controls['user'].value.password
-    ).subscribe({
-      next: response =>{
-        this.router.navigateByUrl("/orders")
-      },
-      error: er=> {
-        alert("Invalid Email or Password")
-      }
-    })*/
   }
 
   get email(){
@@ -85,5 +76,21 @@ export class LoginComponent implements OnInit {
   }
   get password(){
     return this.checkoutParentGroup.get('user.password')
+  }
+
+  signInWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      data => {
+        console.log(data)
+      }
+    );
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+      data => {
+        console.log(data)
+      }
+    );
   }
 }
