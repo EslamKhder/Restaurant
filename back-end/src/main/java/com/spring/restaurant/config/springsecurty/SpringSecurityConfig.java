@@ -56,6 +56,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/activated").permitAll()
                 .antMatchers("/checkEmail").permitAll()
                 .antMatchers("/resetPassword").permitAll()
+                .antMatchers("/social/**").permitAll()
                 .anyRequest().authenticated();
     }
     @Bean
