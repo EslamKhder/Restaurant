@@ -95,7 +95,7 @@ export class LoginComponent implements OnInit {
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
       data => {
-        this.social.loginWithGoogle(data.authToken).subscribe({
+        this.social.loginWithFacebook(data.authToken).subscribe({
           next: response =>{
             this.router.navigateByUrl("/orders")
           }
