@@ -60,11 +60,24 @@ public class SocialController {
                         .setAudience(Collections.singleton(idClient));
         GoogleIdToken googleIdToken = GoogleIdToken.parse(ver.getJsonFactory(),tokenDto.getToken());
         GoogleIdToken.Payload payload = googleIdToken.getPayload();
-        boolean result = userService.ifEmailExist(payload.getEmail()); // t   // f
-        LoginResponse loginResponse = new LoginResponse();
+        return login(payload.getEmail());
+    }
+
+    //http://localhost:8080/social/facebook
+    @PostMapping("/facebook")
+    public LoginResponse loginWithFacebook(@RequestBody TokenDto tokenDto){
+        Facebook facebook = new FacebookTemplate(tokenDto.getToken());
+        String [] data = {"email","name","picture"};
+        User userFacebook = facebook.fetchObject("me",User.class,data);
+        return login(userFacebook.getEmail());
+
+    }
+
+    private LoginResponse login(String email){
+        boolean result = userService.ifEmailExist(email); // t   // f
         if(!result){
             com.spring.restaurant.model.User user = new com.spring.restaurant.model.User();
-            user.setEmail(payload.getEmail());
+            user.setEmail(email);
             user.setPassword(passwordEncoder.encode("kasdjhfkadhsY776ggTyUU65khaskdjfhYuHAwjñlji"));
             user.setActive(1);
             List<Authorities> authorities = authoritiesService.getAuthorities();
@@ -72,17 +85,8 @@ public class SocialController {
             userService.addUser(user);
         }
         JwtLogin jwtLogin = new JwtLogin();
-        jwtLogin.setEmail(payload.getEmail());
+        jwtLogin.setEmail(email);
         jwtLogin.setPassword("kasdjhfkadhsY776ggTyUU65khaskdjfhYuHAwjñlji");
-        loginResponse = tokenService.login(jwtLogin);
-        return loginResponse;
-    }
-    //http://localhost:8080/social/facebook
-    @PostMapping("/facebook")
-    public ResponseEntity<?> loginWithFacebook(@RequestBody TokenDto tokenDto){
-        Facebook facebook = new FacebookTemplate(tokenDto.getToken());
-        String [] data = {"email","name","picture"};
-        User user = facebook.fetchObject("me",User.class,data);
-        return new ResponseEntity<>(user,HttpStatus.OK);
+        return tokenService.login(jwtLogin);
     }
 }
