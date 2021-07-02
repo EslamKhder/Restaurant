@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
@@ -36,18 +37,17 @@ public class SocialController {
     @Value("google.id")
     private String idClient;
 
-    @Value("mySecret.password")
-    private String privatePassword;
-
     private UserService userService;
     private AuthoritiesService authoritiesService;
     private TokenService tokenService;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public SocialController(UserService userService, AuthoritiesService authoritiesService, TokenService tokenService) {
+    public SocialController(UserService userService, AuthoritiesService authoritiesService, TokenService tokenService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.authoritiesService = authoritiesService;
         this.tokenService = tokenService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     //http://localhost:8080/social/google
@@ -60,26 +60,21 @@ public class SocialController {
                         .setAudience(Collections.singleton(idClient));
         GoogleIdToken googleIdToken = GoogleIdToken.parse(ver.getJsonFactory(),tokenDto.getToken());
         GoogleIdToken.Payload payload = googleIdToken.getPayload();
-        boolean result = userService.ifEmailExist(payload.getEmail());
+        boolean result = userService.ifEmailExist(payload.getEmail()); // t   // f
         LoginResponse loginResponse = new LoginResponse();
-        if(result){
-            JwtLogin jwtLogin = new JwtLogin();
-            jwtLogin.setEmail(payload.getEmail());
-            jwtLogin.setPassword(privatePassword);
-            loginResponse = tokenService.login(jwtLogin);
-        } else {
+        if(!result){
             com.spring.restaurant.model.User user = new com.spring.restaurant.model.User();
             user.setEmail(payload.getEmail());
-            user.setPassword(privatePassword);
+            user.setPassword(passwordEncoder.encode("kasdjhfkadhsY776ggTyUU65khaskdjfhYuHAwjñlji"));
             user.setActive(1);
             List<Authorities> authorities = authoritiesService.getAuthorities();
             user.getAuthorities().add(authorities.get(0));
             userService.addUser(user);
-            JwtLogin jwtLogin = new JwtLogin();
-            jwtLogin.setEmail(payload.getEmail());
-            jwtLogin.setPassword(privatePassword);
-            loginResponse = tokenService.login(jwtLogin);
         }
+        JwtLogin jwtLogin = new JwtLogin();
+        jwtLogin.setEmail(payload.getEmail());
+        jwtLogin.setPassword("kasdjhfkadhsY776ggTyUU65khaskdjfhYuHAwjñlji");
+        loginResponse = tokenService.login(jwtLogin);
         return loginResponse;
     }
     //http://localhost:8080/social/facebook
