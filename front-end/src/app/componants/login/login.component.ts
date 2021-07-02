@@ -4,6 +4,7 @@ import {AuthenticationServiceService} from '../../service/security/authenticatio
 import {Router} from '@angular/router';
 import {SpaceValidator} from '../../model/space-validator';
 import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthService} from 'angularx-social-login';
+import {SocialMediaService} from "../../service/social-media.service";
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(private formChildGroup: FormBuilder,
               private auth :AuthenticationServiceService,
               private router: Router,
-              private authService: SocialAuthService) { }
+              private authService: SocialAuthService,
+              private social: SocialMediaService) { }
 
   ngOnInit(): void {
     this.myFormLogin()
@@ -81,15 +83,24 @@ export class LoginComponent implements OnInit {
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       data => {
-        console.log(data)
+        this.social.loginWithGoogle(data.idToken).subscribe({
+          next: response =>{
+            this.router.navigateByUrl("/orders")
+          }
+        })
+        console.log(data.idToken)
       }
     );
   }
-
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
       data => {
-        console.log(data)
+        this.social.loginWithGoogle(data.authToken).subscribe({
+          next: response =>{
+            this.router.navigateByUrl("/orders")
+          }
+        })
+        console.log(data.authToken)
       }
     );
   }
